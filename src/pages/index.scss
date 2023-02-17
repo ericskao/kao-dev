@@ -6,7 +6,9 @@
   &__header {
     color: colors.$primary;
     font-size: sizes.$large;
-    line-height: 70px;
-    font-family: DMSans, cursive;
+    line-height: sizes.$large-line-height;
+    font-family: DMSans;
+    font-weight: sizes.$regular;
+    width: 882px;
   }
 }
