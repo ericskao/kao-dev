@@ -1,0 +1,11 @@
+// @import is being deprecated, so use dart sass (preferred sass lib), and use @use instead
+@use '../styles/abstracts/colors';
+@use '../styles/abstracts/sizes';
+
+.home {
+  &__header {
+    color: colors.$primary;
+    font-size: sizes.$large;
+    line-height: 70px;
+  }
+}
