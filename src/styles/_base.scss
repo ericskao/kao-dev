@@ -1,11 +1,21 @@
+// load font
+@font-face {
+  font-family: "DMSans";
+  src: local("DMSans"),
+    url("../static/fonts/DMSans-Regular.ttf") format("truetype");
+}
+
 // overriding base styles
 body {
   margin: 0;
   background-color: #BCC9DA;
+
   main {
     padding: 0 !important;
   }
+
   h1 {
     margin: 0;
   }
 }
+
