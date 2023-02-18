@@ -1,10 +1,12 @@
 import NavBar from './NavBar';
 import './PageLayout.scss';
 
-const PageLayout: React.FC<{ children: React.ReactNode; title?: string }> = ({
-  children,
-  title,
-}) => {
+interface PageLayoutType {
+  children: React.ReactNode;
+  title?: string; // PageLayout can take optional title as header for the page
+}
+
+const PageLayout: React.FC<PageLayoutType> = ({ children, title }) => {
   return (
     <div className="layout">
       <header>

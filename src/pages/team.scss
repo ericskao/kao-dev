@@ -1,0 +1,22 @@
+@use "../styles/abstracts/sizes";
+
+.team {
+  &__member {
+    display: flex;
+    padding-left: 55px;
+  }
+
+  &__member-name {
+    font-weight: sizes.$font-regular;
+    font-size: sizes.$size-regular;
+    line-height: sizes.$line-height-regular;
+    margin-right: 22px;
+  }
+
+  &__member-description {
+    font-weight: sizes.$font-regular;
+    font-size: sizes.$size-regular;
+    line-height: sizes.$line-height-regular;
+    width: 817px;
+  }
+}

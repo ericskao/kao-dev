@@ -1,7 +1,13 @@
+import { useEffect } from 'react';
 import PageLayout from '../components/PageLayout';
 import './theses.scss';
 
 const Theses = () => {
+  useEffect(() => {
+    // this prevents page from loading at last position  (usually at the nav on bottom)
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <PageLayout title="Theses">
       <main className="theses">

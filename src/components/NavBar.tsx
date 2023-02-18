@@ -7,8 +7,8 @@ interface PageLinkType {
 }
 
 const PAGE_LINKS: PageLinkType[] = [
-  { text: 'Story', url: '/story' },
   { text: 'Theses', url: '/theses' },
+  { text: 'Blog', url: '/blog' },
   { text: 'Team', url: '/team' },
 ];
 
@@ -19,8 +19,8 @@ const NavBar: React.FC = () => {
         <img src={mainLogo} alt="theory-ventures-logo" />
       </a>
       <ul className="navbar__items">
-        {PAGE_LINKS.map((link) => (
-          <li>
+        {PAGE_LINKS.map((link, index) => (
+          <li key={index}>
             <a href={link.url}>{link.text}</a>
           </li>
         ))}
