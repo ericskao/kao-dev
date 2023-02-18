@@ -1,6 +1,19 @@
+@use "../styles/abstracts/sizes";
+
 .layout {
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 122px);
   padding: 36px 80px 86px 80px;
+
+  &__logo {
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    font-size: sizes.$size-large;
+    line-height: sizes.$line-height-large;
+    font-weight: sizes.$font-heavy;
+    margin-bottom: 70px;
+  }
 }

@@ -1,3 +1,5 @@
+@use "../styles/abstracts/colors";
+
 // load font
 @font-face {
   font-family: "DMSans";
@@ -16,13 +18,22 @@ body {
   margin: 0;
   background-color: #bcc9da;
   font-family: DMSans;
-  color: #fff;
+  color: colors.$primary;
 
   main {
     padding: 0 !important;
   }
 
-  h1 {
+  a {
+    text-decoration: none;
+    color: colors.$primary;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  figure {
     margin: 0;
   }
 }

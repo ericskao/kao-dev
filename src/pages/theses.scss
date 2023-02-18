@@ -1,0 +1,41 @@
+@use "../styles/abstracts/sizes";
+
+.theses {
+  &__section {
+    display: flex;
+    padding-left: 190px;
+  }
+  section:not(:last-child) {
+    margin-bottom: 130px;
+  }
+  section:last-child {
+    margin-bottom: 190px;
+  }
+
+  &__key {
+    margin-right: 20px;
+  }
+
+  &__value {
+    width: 817px;
+    line-height: sizes.$line-height-regular;
+  }
+
+  &__key,
+  &__value {
+    font-size: sizes.$size-regular;
+    font-weight: sizes.$font-regular;
+  }
+
+  &__companies {
+    margin-top: 60px;
+    gap: 70px 90px;
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  h4 {
+    display: inline;
+    font-weight: sizes.$font-heavy;
+  }
+}

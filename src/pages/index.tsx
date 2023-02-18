@@ -56,8 +56,10 @@ const Home: React.FC<PageProps> = () => {
     <PageLayout>
       <main className="home">
         <h1 className="home__header">
-          We invest $1-25m in early stage software companies that leverage technology
-          discontinuities into go-to-market advantages.
+          <article>
+            We invest $1-25m in early stage software companies that leverage technology
+            discontinuities into go-to-market advantages.
+          </article>
         </h1>
       </main>
     </PageLayout>
