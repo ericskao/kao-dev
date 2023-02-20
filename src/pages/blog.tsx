@@ -4,6 +4,7 @@ import PageLayout from '../components/PageLayout';
 import XMLParser from 'react-xml-parser';
 
 import './blog.scss';
+import ReactMarkdown from 'react-markdown';
 
 interface ArticleType {
   title: string;
@@ -77,14 +78,23 @@ const Blog = () => {
     <PageLayout title="Blog">
       <main className="blog">
         <section className="blog__section">
-          {blogArticles.map((article, index) => (
-            <div className="blog__article" key={index}>
-              <a type="text/html" href={article.link} target="_blank">
-                <h2 className="blog__article-title">{article.title}</h2>
-                {article.pubDate && <time className="blog__date">{article.pubDate}</time>}
-              </a>
-            </div>
-          ))}
+          {blogArticles.map((article, index) => {
+            const dateStr = new Date(article.pubDate);
+            return (
+              <div className="blog__article" key={index}>
+                <a type="text/html" href={article.link} target="_blank">
+                  <h2 className="blog__article-title">
+                    <ReactMarkdown>{article.title}</ReactMarkdown>
+                  </h2>
+                  {article.pubDate && (
+                    <time className="blog__date">
+                      {dateStr.toLocaleString('default', { month: 'long' })} {dateStr.getUTCDate()}
+                    </time>
+                  )}
+                </a>
+              </div>
+            );
+          })}
           <div className="blog__read-more">
             <a href="https://tomtunguz.com/" rel="author" target="_blank">
               Read more and subscribe at tomtunguz.com
