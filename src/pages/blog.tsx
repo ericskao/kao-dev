@@ -1,9 +1,28 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import PageLayout from '../components/PageLayout';
+import XMLParser from 'react-xml-parser';
+
 import './blog.scss';
 
 interface ArticleType {
   title: string;
   date?: string;
+}
+
+interface XmlArticleType {
+  name: string;
+  children: {
+    name: string;
+    value: string;
+  }[];
+}
+
+interface DerivedArticleType {
+  title: string;
+  link: string;
+  pubDate: string;
+  description: string;
 }
 
 const articles: ArticleType[] = [
@@ -18,15 +37,51 @@ const articles: ArticleType[] = [
 ];
 
 const Blog = () => {
+  const [items, setItems] = useState<[]>([]);
+
+  useEffect(() => {
+    // will have to check if dev to use cors-anywhere proxy, or normal domain in prod
+    axios
+      .get('https://cors-anywhere.herokuapp.com/https://tomtunguz.com/index.xml', {
+        withCredentials: false,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET',
+          'Content-Type': 'text/xml; charset=utf-8',
+        },
+      })
+      .then((response) => {
+        // should add error handling/catching
+        if (response.status === 200 && response.data) setItems(response.data);
+      });
+  }, []);
+
+  // if xml string is returned, parse it into json else keep empty array
+  const parsedData: XmlArticleType[] | [] =
+    items.length > 0 ? new XMLParser().parseFromString(items)?.children : [];
+
+  // filter only blog items, and first 5
+  const blogArticles = parsedData
+    .filter((item: any) => item.name === 'item')
+    .slice(0, 5)
+    .map((item: XmlArticleType) => {
+      // transform data, change children name values into new object keys (along with its original 'value')
+      // returns item as  {title: 'When AI Favors the Incumbents', link: 'https://www.tomtunguz.com/when-ai-favors-the-incumbent/', pubDate: 'Thu, 02 Feb 2023'}
+      return item.children.reduce((acc: { [key: string]: string }, curr) => {
+        acc[curr.name] = curr.value;
+        return acc;
+      }, {});
+    });
+
   return (
     <PageLayout title="Blog">
       <main className="blog">
         <section className="blog__section">
-          {articles.map((article, index) => (
+          {blogArticles.map((article, index) => (
             <div className="blog__article" key={index}>
-              <a type="text/html" href="https://www.google.com" target="_blank">
+              <a type="text/html" href={article.link} target="_blank">
                 <h2 className="blog__article-title">{article.title}</h2>
-                {article.date && <time className="blog__date">{article.date}</time>}
+                {article.pubDate && <time className="blog__date">{article.pubDate}</time>}
               </a>
             </div>
           ))}

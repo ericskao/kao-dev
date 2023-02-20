@@ -22,7 +22,7 @@ const Team = () => {
     <PageLayout title="Team">
       <main className="team">
         {TEAM_MEMBERS.map((member, index) => (
-          <section className="team__member">
+          <section key={index} className="team__member">
             <h2 className="team__member-name">{member.name}:</h2>
             <h3 className="team__member-description">{member.description}</h3>
           </section>
