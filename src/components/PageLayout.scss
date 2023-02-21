@@ -6,14 +6,31 @@
   min-height: calc(100vh - 122px);
   padding: 36px 80px 86px 80px;
 
-  &__logo {
-    margin-bottom: 24px;
+  // mobile view
+  @media (max-width: sizes.$layout-breakpoint-small) {
+    padding: 18px 40px 40px;
+    order: 1;
   }
 
+  &__logo {
+    margin-bottom: 24px;
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__logo-container,
   &__title {
     font-size: sizes.$size-large;
     line-height: sizes.$line-height-large;
     font-weight: sizes.$font-heavy;
     margin-bottom: 70px;
+  }
+
+  &__title {
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      order: 3;
+    }
   }
 }

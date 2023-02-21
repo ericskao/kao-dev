@@ -9,8 +9,8 @@ interface PageLayoutType {
 const PageLayout: React.FC<PageLayoutType> = ({ children, title }) => {
   return (
     <div className="layout">
-      <header>
-        <figure className="layout__logo">{/* <img /> */} logo here</figure>
+      <header className="layout__logo">
+        <figure>{/* <img /> */} logo here</figure>
       </header>
       {title && <h1 className="layout__title">{title}</h1>}
       {children}

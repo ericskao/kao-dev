@@ -1,3 +1,4 @@
+import { HeadFC } from 'gatsby';
 import { useEffect } from 'react';
 import PageLayout from '../components/PageLayout';
 import './theses.scss';
@@ -66,3 +67,5 @@ const Theses = () => {
 };
 
 export default Theses;
+
+export const Head: HeadFC = () => <title>Theory Ventures - Theses</title>;

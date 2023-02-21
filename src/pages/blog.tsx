@@ -5,11 +5,7 @@ import XMLParser from 'react-xml-parser';
 
 import './blog.scss';
 import ReactMarkdown from 'react-markdown';
-
-interface ArticleType {
-  title: string;
-  date?: string;
-}
+import { HeadFC } from 'gatsby';
 
 interface XmlArticleType {
   name: string;
@@ -19,26 +15,8 @@ interface XmlArticleType {
   }[];
 }
 
-interface DerivedArticleType {
-  title: string;
-  link: string;
-  pubDate: string;
-  description: string;
-}
-
-const articles: ArticleType[] = [
-  { title: 'Microsoft as a Mirror - What We Can Expect for SaaS in 2023', date: 'January 24' },
-  { title: 'How Layoffs in Startupland Differ Between B2B & B2C Companies', date: 'January 23' },
-  { title: 'Is the Suite Strategy Right for Your SaaS Startup?', date: 'January 19' },
-  { title: 'The Most Acquisitive Acquihirers in Software', date: 'January 16' },
-  {
-    title: 'Rabbits on Firetrucks : Generating Images for B2B Blog Posts Using AI',
-    date: 'January 13',
-  },
-];
-
 const Blog = () => {
-  const [items, setItems] = useState<[]>([]);
+  const [items, setItems] = useState<XmlArticleType[]>([]);
 
   useEffect(() => {
     // will have to check if dev to use cors-anywhere proxy, or normal domain in prod
@@ -63,7 +41,7 @@ const Blog = () => {
 
   // filter only blog items, and first 5
   const blogArticles = parsedData
-    .filter((item: any) => item.name === 'item')
+    .filter((item: { name: string }) => item.name === 'item')
     .slice(0, 5)
     .map((item: XmlArticleType) => {
       // transform data, change children name values into new object keys (along with its original 'value')
@@ -107,3 +85,5 @@ const Blog = () => {
 };
 
 export default Blog;
+
+export const Head: HeadFC = () => <title>Theory Ventures - Blog</title>;

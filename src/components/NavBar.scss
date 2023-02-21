@@ -5,6 +5,10 @@
   margin-top: auto;
   justify-content: space-between;
 
+  @media (max-width: sizes.$layout-breakpoint-small) {
+    margin-top: 0;
+  }
+
   &__items {
     display: flex;
     align-items: center;

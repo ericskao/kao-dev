@@ -1,23 +1,31 @@
 @use "../styles/abstracts/sizes";
 
 .blog {
+  @media (max-width: sizes.$layout-breakpoint-small) {
+    order: 3;
+  }
+
   &__section {
     padding-left: 380px;
     width: 850px;
   }
+
   &__article:not(:last-child) {
     margin-bottom: 30px;
   }
+
   &__article-title {
     font-size: sizes.$size-regular;
     line-height: sizes.$line-height-regular;
     font-weight: sizes.$font-regular;
   }
+
   &__date {
     font-size: sizes.$size-small;
     line-height: sizes.$line-height-small;
     font-weight: sizes.$font-regular;
   }
+
   &__read-more {
     padding: 40px 0;
     font-size: sizes.$size-small;

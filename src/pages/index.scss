@@ -3,6 +3,12 @@
 @use "../styles/abstracts/sizes";
 
 .home {
+  display: flex;
+
+  @media (max-width: sizes.$layout-breakpoint-small) {
+    order: 2;
+  }
+
   &__header {
     font-size: sizes.$size-large;
     line-height: sizes.$line-height-large;

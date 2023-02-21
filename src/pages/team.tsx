@@ -1,3 +1,4 @@
+import { HeadFC } from 'gatsby';
 import PageLayout from '../components/PageLayout';
 import './team.scss';
 
@@ -33,3 +34,5 @@ const Team = () => {
 };
 
 export default Team;
+
+export const Head: HeadFC = () => <title>Theory Ventures - Team</title>;

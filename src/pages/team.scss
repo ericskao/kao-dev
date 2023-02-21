@@ -1,6 +1,10 @@
 @use "../styles/abstracts/sizes";
 
 .team {
+  @media (max-width: sizes.$layout-breakpoint-small) {
+    order: 3;
+  }
+
   &__member {
     display: flex;
     padding-left: 55px;

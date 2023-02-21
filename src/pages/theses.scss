@@ -1,13 +1,24 @@
 @use "../styles/abstracts/sizes";
 
 .theses {
+  @media (max-width: sizes.$layout-breakpoint-small) {
+    order: 3;
+  }
+
   &__section {
     display: flex;
     padding-left: 190px;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      flex-direction: column;
+      padding-left: 0;
+    }
   }
+
   section:not(:last-child) {
     margin-bottom: 130px;
   }
+
   section:last-child {
     margin-bottom: 190px;
   }
@@ -19,6 +30,10 @@
   &__value {
     width: 817px;
     line-height: sizes.$line-height-regular;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      width: auto;
+    }
   }
 
   &__key,
