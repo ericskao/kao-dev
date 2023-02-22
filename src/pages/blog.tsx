@@ -2,10 +2,10 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import PageLayout from '../components/PageLayout';
 import XMLParser from 'react-xml-parser';
-
-import './blog.scss';
 import ReactMarkdown from 'react-markdown';
 import { HeadFC } from 'gatsby';
+
+import './blog.scss';
 
 interface XmlArticleType {
   name: string;
@@ -32,6 +32,9 @@ const Blog = () => {
       .then((response) => {
         // should add error handling/catching
         if (response.status === 200 && response.data) setItems(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }, []);
 
@@ -86,4 +89,4 @@ const Blog = () => {
 
 export default Blog;
 
-export const Head: HeadFC = () => <title>Theory Ventures - Blog</title>;
+// export const Head: HeadFC = () => <title>Theory Ventures - Blog</title>;
