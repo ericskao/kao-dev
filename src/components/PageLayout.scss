@@ -20,6 +20,11 @@
     }
   }
 
+  &__logo-image {
+    width: 36px;
+    height: 41px;
+  }
+
   &__logo-container,
   &__title {
     font-size: sizes.$size-large;

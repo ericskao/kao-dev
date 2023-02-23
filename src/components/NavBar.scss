@@ -9,6 +9,17 @@
     margin-top: 0;
   }
 
+  &__logo {
+    display: flex;
+    align-items: center;
+
+    svg {
+      display: block;
+      width: 343px;
+      height: 53px;
+    }
+  }
+
   &__page-links {
     &:hover {
       text-decoration: underline;

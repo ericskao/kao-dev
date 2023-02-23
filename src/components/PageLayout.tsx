@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import NavBar from './NavBar';
+import logo from '../images/theory-logo.png';
+
 import './PageLayout.scss';
+import { Link } from 'gatsby';
 
 interface PageLayoutType {
   children: React.ReactNode;
@@ -19,7 +22,11 @@ const PageLayout: React.FC<PageLayoutType> = ({ children, title }) => {
   return (
     <div className="layout">
       <header className="layout__logo">
-        <figure>{/* <img /> */} logo here</figure>
+        <figure>
+          <Link to="/">
+            <img className="layout__logo-image" src={logo} alt="theory-ventures-logo" />
+          </Link>
+        </figure>
       </header>
       {title && <h1 className="layout__title">{title}</h1>}
       {children}

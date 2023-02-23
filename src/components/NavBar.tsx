@@ -1,4 +1,7 @@
-import mainLogo from '../images/theory_ventures.png';
+import LinkedIn from '../images/svgs/LinkedIn';
+import Twitter from '../images/svgs/Twitter';
+import TheoryLogo from '../images/svgs/TheoryLogo';
+
 import './NavBar.scss';
 
 interface PageLinkType {
@@ -15,8 +18,8 @@ const PAGE_LINKS: PageLinkType[] = [
 const NavBar: React.FC = () => {
   return (
     <nav className="navbar">
-      <a href="/">
-        <img src={mainLogo} alt="theory-ventures-logo" />
+      <a className="navbar__logo" href="/">
+        <TheoryLogo />
       </a>
       <ul className="navbar__items">
         {PAGE_LINKS.map((link, index) => (
@@ -28,11 +31,13 @@ const NavBar: React.FC = () => {
         ))}
         <li>
           <a className="navbar__twitter" target="_blank">
-            Twitter
+            <Twitter />
           </a>
         </li>
         <li>
-          <a target="_blank">LinkedIn</a>
+          <a target="_blank">
+            <LinkedIn />
+          </a>
         </li>
       </ul>
     </nav>
