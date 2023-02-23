@@ -5,6 +5,10 @@
     order: 3;
   }
 
+  a:hover {
+    text-decoration: underline;
+  }
+
   &__section {
     padding-left: 380px;
     width: 850px;

@@ -11,6 +11,7 @@ const PageLayout: React.FC<PageLayoutType> = ({ children, title }) => {
   const [initialRenderComplete, setInitialRenderComplete] = useState(false);
 
   useEffect(() => {
+    // for fixing react hydration UI issues (mismatch beteween server side rendering and initial client render)
     setInitialRenderComplete(true);
   }, []);
 

@@ -21,11 +21,15 @@ const NavBar: React.FC = () => {
       <ul className="navbar__items">
         {PAGE_LINKS.map((link, index) => (
           <li key={index}>
-            <a href={link.url}>{link.text}</a>
+            <a className="navbar__page-links" href={link.url}>
+              {link.text}
+            </a>
           </li>
         ))}
         <li>
-          <a target="_blank">Twitter</a>
+          <a className="navbar__twitter" target="_blank">
+            Twitter
+          </a>
         </li>
         <li>
           <a target="_blank">LinkedIn</a>

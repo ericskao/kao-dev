@@ -17,11 +17,17 @@ interface XmlArticleType {
 
 const Blog = () => {
   const [items, setItems] = useState<XmlArticleType[]>([]);
+  const [fetching, setFetching] = useState(true);
 
   useEffect(() => {
-    // will have to check if dev to use cors-anywhere proxy, or normal domain in prod
+    // will have to check if dev to use cors-anywhere proxy
+    const blogUrl = 'https://tomtunguz.com/index.xml';
+    const prependedUrl = `${
+      process.env.NODE_ENV === 'development' && 'https://cors-anywhere.herokuapp.com/'
+    }${blogUrl}`;
+
     axios
-      .get('https://cors-anywhere.herokuapp.com/https://tomtunguz.com/index.xml', {
+      .get(prependedUrl, {
         withCredentials: false,
         headers: {
           'Access-Control-Allow-Origin': '*',
@@ -34,15 +40,16 @@ const Blog = () => {
         if (response.status === 200 && response.data) {
           const parsedXml = new XMLParser().parseFromString(response.data)?.children;
           setItems(parsedXml);
+          setFetching(false);
         }
       })
       .catch((error) => {
         console.log(error);
+        setFetching(false);
       });
   }, []);
 
   const isBrowser = typeof window !== 'undefined';
-
   if (!isBrowser) return null;
 
   // filter only blog items, and first 5
@@ -60,36 +67,39 @@ const Blog = () => {
 
   return (
     <PageLayout title="Blog">
-      <main className="blog">
-        <section className="blog__section">
-          {blogArticles.map((article, index) => {
-            const dateStr = new Date(article.pubDate);
-            return (
-              <div className="blog__article" key={index}>
-                <a type="text/html" href={article.link} target="_blank">
-                  <h2 className="blog__article-title">
-                    <ReactMarkdown>{article.title}</ReactMarkdown>
-                  </h2>
+      {!fetching && (
+        <main className="blog">
+          <section className="blog__section">
+            {blogArticles.map((article, index) => {
+              const dateStr = new Date(article.pubDate);
+              return (
+                <div className="blog__article" key={index}>
+                  <a type="text/html" href={article.link} target="_blank">
+                    <h2 className="blog__article-title">
+                      <ReactMarkdown>{article.title}</ReactMarkdown>
+                    </h2>
+                  </a>
                   {article.pubDate && (
                     <time className="blog__date">
-                      {dateStr.toLocaleString('default', { month: 'long' })} {dateStr.getUTCDate()}
+                      {dateStr.toLocaleString('default', { month: 'long' })} {dateStr.getUTCDate()},{' '}
+                      {dateStr.getFullYear()}
                     </time>
                   )}
-                </a>
-              </div>
-            );
-          })}
-          <div className="blog__read-more">
-            <a href="https://tomtunguz.com/" rel="author" target="_blank">
-              Read more and subscribe at tomtunguz.com
-            </a>
-          </div>
-        </section>
-      </main>
+                </div>
+              );
+            })}
+            <div className="blog__read-more">
+              <a href="https://tomtunguz.com/" rel="author" target="_blank">
+                Read more and subscribe at tomtunguz.com
+              </a>
+            </div>
+          </section>
+        </main>
+      )}
     </PageLayout>
   );
 };
 
 export default Blog;
 
-// export const Head: HeadFC = () => <title>Theory Ventures - Blog</title>;
+export const Head: HeadFC = () => <title>Theory Ventures - Blog</title>;
