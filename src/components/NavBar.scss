@@ -22,7 +22,7 @@
 
   &__page-links {
     text-decoration: underline rgba(0, 0, 0, 0);
-    transition: text-decoration-color 500ms;
+    transition: text-decoration-color 250ms;
     text-underline-offset: 3px;
     &:hover {
       text-decoration-color: colors.$primary;

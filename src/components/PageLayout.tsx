@@ -20,7 +20,7 @@ const PageLayout: React.FC<PageLayoutType> = ({ children, title }) => {
 
   if (!initialRenderComplete) return null;
   return (
-    <div className="layout">
+    <div className="layout layout--fade-in">
       <header className="layout__logo">
         <figure>
           <Link to="/">
