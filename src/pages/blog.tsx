@@ -21,13 +21,15 @@ const Blog = () => {
 
   useEffect(() => {
     // will have to check if dev to use cors-anywhere proxy
-    const blogUrl = 'https://tomtunguz.com/index.xml';
-    const prependedUrl = `${
-      process.env.NODE_ENV === 'development' ? 'https://cors-anywhere.herokuapp.com/' : ''
-    }${blogUrl}`;
+
+    // to-do:
+    // const blogUrl = 'https://tomtunguz.com/index.xml';
+    // const prependedUrl = `${
+    //   process.env.NODE_ENV === 'development' ? 'https://cors-anywhere.herokuapp.com/' :''
+    // }${blogUrl}`;
 
     axios
-      .get(prependedUrl, {
+      .get('https://cors-anywhere.herokuapp.com/https://tomtunguz.com/index.xml', {
         withCredentials: false,
         headers: {
           'Access-Control-Allow-Origin': '*',
