@@ -1,12 +1,13 @@
 @use "../styles/abstracts/sizes";
 
+$thesis-content-width: 817px;
+
 .theses {
   @media (max-width: sizes.$layout-breakpoint-small) {
     order: 3;
   }
 
   &__section {
-    display: flex;
     padding-left: 190px;
 
     @media (max-width: sizes.$layout-breakpoint-small) {
@@ -16,21 +17,22 @@
   }
 
   section:not(:last-child) {
-    margin-bottom: 130px;
+    margin-bottom: 143px;
   }
 
   section:last-child {
     margin-bottom: 190px;
   }
 
-  &__key {
+  &__key,
+  &__company-image {
     margin-right: 20px;
     width: 165px;
     text-align: right;
   }
 
   &__value {
-    width: 817px;
+    width: $thesis-content-width;
     line-height: sizes.$line-height-regular;
 
     @media (max-width: sizes.$layout-breakpoint-small) {
@@ -44,11 +46,21 @@
     font-weight: sizes.$font-regular;
   }
 
+  &__pair {
+    display: flex;
+  }
+
   &__companies {
     margin-top: 60px;
-    gap: 70px 90px;
-    display: inline-grid;
-    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &__company {
+    display: flex;
+    margin-bottom: 33px;
+  }
+
+  &__company-description {
+    width: $thesis-content-width;
   }
 
   h4 {
