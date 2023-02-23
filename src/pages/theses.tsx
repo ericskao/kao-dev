@@ -1,48 +1,61 @@
 import { HeadFC } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
 import { useEffect } from 'react';
 import PageLayout from '../components/PageLayout';
+
+import looker from '../images/companies/Looker.png';
+import chorus from '../images/companies/chorus.png';
+import dremio from '../images/companies/dremio.png';
+import hex from '../images/companies/HEX.png';
+import lilt from '../images/companies/lilt.png';
+import monteCarlo from '../images/companies/MonteCarlo.png';
+import motherDuck from '../images/companies/mother-duck.png';
+import omni from '../images/companies/omni.png';
+import spotai from '../images/companies/spotai.png';
+
 import './theses.scss';
 
 interface ThesesCompanyType {
   imageUrl: string;
   description: string;
-  name?: string;
+  name: string;
 }
 
+// using StaticImage which is loaded at build time and takes advantage of lazyloading
 const THESIS_1_COMPANIES: ThesesCompanyType[] = [
   {
     name: 'Looker',
-    imageUrl: '',
+    imageUrl: looker,
     description:
       'Looker: Lorum ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
   },
   {
     name: 'Hex',
-    imageUrl: '',
+    imageUrl: hex,
     description:
       'Looker: Lorum ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
   },
   {
     name: 'Dremio',
-    imageUrl: '',
+    imageUrl: dremio,
     description:
       'Looker: Lorum ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
   },
   {
     name: 'Omni',
-    imageUrl: '',
+    imageUrl: omni,
     description:
       'Looker: Lorum ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
   },
   {
     name: 'Motherduck',
-    imageUrl: '',
+    imageUrl: motherDuck,
     description:
       'Looker: Lorum ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
   },
   {
     name: 'Monte Carlo',
-    imageUrl: '',
+    imageUrl: monteCarlo,
     description:
       'Looker: Lorum ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
   },
@@ -50,19 +63,19 @@ const THESIS_1_COMPANIES: ThesesCompanyType[] = [
 const THESIS_2_COMPANIES: ThesesCompanyType[] = [
   {
     name: 'Chorus',
-    imageUrl: '',
+    imageUrl: chorus,
     description:
       'Looker: Lorum ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
   },
   {
     name: 'Lilt',
-    imageUrl: '',
+    imageUrl: lilt,
     description:
       'Looker: Lorum ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
   },
   {
     name: 'Spot.ai',
-    imageUrl: '',
+    imageUrl: spotai,
     description:
       'Looker: Lorum ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud',
   },
@@ -106,7 +119,7 @@ const Theses = () => {
           <div className="theses__companies">
             {THESIS_1_COMPANIES.map((company) => (
               <div className="theses__company">
-                <div className="theses__company-image">{company.name}</div>
+                <StaticImage src={company.imageUrl} alt={company.name} />
                 <div className="theses__company-description">{company.description}</div>
               </div>
             ))}

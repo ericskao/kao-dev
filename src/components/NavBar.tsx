@@ -1,6 +1,7 @@
 import LinkedIn from '../images/svgs/LinkedIn';
 import Twitter from '../images/svgs/Twitter';
 import TheoryLogo from '../images/svgs/TheoryLogo';
+import { Link } from 'gatsby';
 
 import './NavBar.scss';
 
@@ -18,24 +19,24 @@ const PAGE_LINKS: PageLinkType[] = [
 const NavBar: React.FC = () => {
   return (
     <nav className="navbar">
-      <a className="navbar__logo" href="/">
+      <Link className="navbar__logo" to="/">
         <TheoryLogo />
-      </a>
+      </Link>
       <ul className="navbar__items">
         {PAGE_LINKS.map((link, index) => (
           <li key={index}>
-            <a className="navbar__page-links" href={link.url}>
+            <Link className="navbar__page-links" to={link.url}>
               {link.text}
-            </a>
+            </Link>
           </li>
         ))}
         <li>
-          <a className="navbar__twitter" target="_blank">
+          <a className="navbar__twitter" target="_blank" href="https://twitter.com/ttunguz">
             <Twitter />
           </a>
         </li>
         <li>
-          <a target="_blank">
+          <a target="_blank" href="https://www.linkedin.com/in/tomasztunguz/">
             <LinkedIn />
           </a>
         </li>

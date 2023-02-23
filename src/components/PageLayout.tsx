@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import NavBar from './NavBar';
 import logo from '../images/theory-logo.png';
+import { Link } from 'gatsby';
 
 import './PageLayout.scss';
-import { Link } from 'gatsby';
 
 interface PageLayoutType {
   children: React.ReactNode;
