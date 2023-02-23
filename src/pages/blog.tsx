@@ -31,19 +31,22 @@ const Blog = () => {
       })
       .then((response) => {
         // should add error handling/catching
-        if (response.status === 200 && response.data) setItems(response.data);
+        if (response.status === 200 && response.data) {
+          const parsedXml = new XMLParser().parseFromString(response.data)?.children;
+          setItems(parsedXml);
+        }
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
 
-  // if xml string is returned, parse it into json else keep empty array
-  const parsedData: XmlArticleType[] | [] =
-    items.length > 0 ? new XMLParser().parseFromString(items)?.children : [];
+  const isBrowser = typeof window !== 'undefined';
+
+  if (!isBrowser) return null;
 
   // filter only blog items, and first 5
-  const blogArticles = parsedData
+  const blogArticles = items
     .filter((item: { name: string }) => item.name === 'item')
     .slice(0, 5)
     .map((item: XmlArticleType) => {
