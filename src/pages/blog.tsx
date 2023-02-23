@@ -23,7 +23,7 @@ const Blog = () => {
     // will have to check if dev to use cors-anywhere proxy
     const blogUrl = 'https://tomtunguz.com/index.xml';
     const prependedUrl = `${
-      process.env.NODE_ENV === 'development' && 'https://cors-anywhere.herokuapp.com/'
+      process.env.NODE_ENV === 'development' ? 'https://cors-anywhere.herokuapp.com/' : ''
     }${blogUrl}`;
 
     axios
