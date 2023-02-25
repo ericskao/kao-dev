@@ -37,6 +37,19 @@
     li {
       font-size: sizes.$size-small;
     }
+
+    // hovering over social links
+    &--social {
+      svg {
+        padding-top: 4px;
+        padding-bottom: 2px;
+        border-bottom: 2px solid rgba(0, 0, 0, 0);
+        transition: border 250ms;
+      }
+      svg:hover {
+        border-bottom: 2px solid colors.$primary;
+      }
+    }
   }
 
   &__twitter {

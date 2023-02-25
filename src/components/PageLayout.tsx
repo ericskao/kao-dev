@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import NavBar from './NavBar';
-import logo from '../images/theory-logo.png';
+import logo from '../images/theory-animation-small.gif';
 import { Link } from 'gatsby';
 
 import './PageLayout.scss';

@@ -31,12 +31,12 @@ const NavBar: React.FC = () => {
             </Link>
           </li>
         ))}
-        <li>
+        <li className="navbar__items--social">
           <a className="navbar__twitter" target="_blank" href="https://twitter.com/ttunguz">
             <Twitter />
           </a>
         </li>
-        <li>
+        <li className="navbar__items--social">
           <a target="_blank" href="https://www.linkedin.com/in/tomasztunguz/">
             <LinkedIn />
           </a>
