@@ -1,11 +1,11 @@
 @use "../styles/abstracts/sizes";
 @use "../styles/abstracts/colors";
+@use "../styles/abstracts/effects";
 
 .navbar {
   display: flex;
   margin-top: auto;
   justify-content: space-between;
-
   @media (max-width: sizes.$layout-breakpoint-small) {
     margin-top: 0;
   }
@@ -21,13 +21,11 @@
   }
 
   &__page-links {
-    text-decoration: underline rgba(0, 0, 0, 0);
-    transition: text-decoration-color 250ms;
-    text-underline-offset: 3px;
+    @include effects.underline(250ms, 3px);
+    margin-right: 96px;
     &:hover {
       text-decoration-color: colors.$primary;
     }
-    margin-right: 96px;
   }
 
   &__items {
@@ -45,9 +43,9 @@
         padding-bottom: 2px;
         border-bottom: 2px solid rgba(0, 0, 0, 0);
         transition: border 250ms;
-      }
-      svg:hover {
-        border-bottom: 2px solid colors.$primary;
+        &:hover {
+          border-bottom: 2px solid colors.$primary;
+        }
       }
     }
   }

@@ -1,5 +1,4 @@
 import { HeadFC } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
 import { useEffect } from 'react';
 import PageLayout from '../components/PageLayout';
 import ThesisOneCompanies from '../components/ThesisOneCompanies';
@@ -22,10 +21,10 @@ const Theses = () => {
           <div className="theses__pair">
             <h2 className="theses__key">Thesis 1:</h2>
             <h3 className="theses__value">
-              <h4>The Decade of Data:</h4> We are living in a decade of data. Every company
-              leverages insight from data for competitive advantage. Data movement, transformation,
-              analysis, & observability software will underpin data applications used by every part
-              of modern organizations.
+              <b>The Decade of Data:</b> We are living in a decade of data. Every company leverages
+              insight from data for competitive advantage. Data movement, transformation, analysis,
+              & observability software will underpin data applications used by every part of modern
+              organizations.
             </h3>
           </div>
           <ul className="theses__companies">
@@ -36,7 +35,7 @@ const Theses = () => {
           <div className="theses__pair">
             <h2 className="theses__key">Thesis 2:</h2>
             <h3 className="theses__value">
-              <h4>Machine Learning as a Force Multiplier:</h4> there are four types of machine
+              <b>Machine Learning as a Force Multiplier:</b> there are four types of machine
               learning: classification, prediction, interpretation, & generation. Modern software
               embeds these four type of ML into workflows which anticipate user needs & enable
               workers to operate at a superior level of abstraction.
@@ -50,9 +49,9 @@ const Theses = () => {
           <div className="theses__pair">
             <h2 className="theses__key">Thesis 2:</h2>
             <h3 className="theses__value">
-              <h4>Decentralized infrastructure as database: </h4> blockchain technologies invert
-              data ownership by shifting control to the end user. This new architecture transforms
-              the relationship amongst users, assets, & businesses.
+              <b>Decentralized infrastructure as database: </b> blockchain technologies invert data
+              ownership by shifting control to the end user. This new architecture transforms the
+              relationship amongst users, assets, & businesses.
             </h3>
           </div>
           <div className="theses__companies">

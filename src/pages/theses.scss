@@ -7,7 +7,6 @@
 
   &__section {
     padding-left: 190px;
-
     @media (max-width: sizes.$layout-breakpoint-small) {
       flex-direction: column;
       padding-left: 0;
@@ -30,7 +29,6 @@
   &__value {
     width: 817px;
     line-height: sizes.$line-height-regular;
-
     @media (max-width: sizes.$layout-breakpoint-small) {
       width: auto;
     }
@@ -49,10 +47,5 @@
 
   &__companies {
     margin-top: 60px;
-  }
-
-  h4 {
-    display: inline;
-    font-weight: sizes.$font-heavy;
   }
 }

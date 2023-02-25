@@ -1,5 +1,6 @@
 @use "../styles/abstracts/sizes";
 @use "../styles/abstracts/effects";
+@use "../styles/abstracts/colors";
 
 .blog {
   @media (max-width: sizes.$layout-breakpoint-small) {
@@ -24,6 +25,10 @@
     font-size: sizes.$size-regular;
     line-height: sizes.$line-height-regular;
     font-weight: sizes.$font-regular;
+    @include effects.underline(400ms, 2px);
+    &:hover {
+      text-decoration-color: colors.$primary;
+    }
   }
 
   &__date {
