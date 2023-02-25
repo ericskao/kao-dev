@@ -1,0 +1,11 @@
+@use "../styles/abstracts/colors";
+
+.loading-screen {
+  position: absolute;
+  background-color: colors.$bg-color;
+
+  img {
+    width: 100vw;
+    height: 100vh;
+  }
+}
