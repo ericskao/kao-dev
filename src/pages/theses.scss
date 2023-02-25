@@ -1,7 +1,5 @@
 @use "../styles/abstracts/sizes";
 
-$thesis-content-width: 817px;
-
 .theses {
   @media (max-width: sizes.$layout-breakpoint-small) {
     order: 3;
@@ -24,15 +22,13 @@ $thesis-content-width: 817px;
     margin-bottom: 190px;
   }
 
-  &__key,
-  &__company-image {
-    margin-right: 20px;
-    width: 165px;
+  &__key {
+    min-width: 180px;
     text-align: right;
   }
 
   &__value {
-    width: $thesis-content-width;
+    width: 817px;
     line-height: sizes.$line-height-regular;
 
     @media (max-width: sizes.$layout-breakpoint-small) {
@@ -48,20 +44,11 @@ $thesis-content-width: 817px;
 
   &__pair {
     display: flex;
+    gap: 36px;
   }
 
   &__companies {
     margin-top: 60px;
-  }
-
-  &__company {
-    display: flex;
-    margin-bottom: 33px;
-    gap: 36px;
-  }
-
-  &__company-description {
-    width: $thesis-content-width;
   }
 
   h4 {

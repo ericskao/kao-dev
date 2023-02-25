@@ -1,6 +1,8 @@
 @use "../styles/abstracts/sizes";
+@use "../styles/abstracts/effects";
 
 .layout {
+  @include effects.fadeIn(2s);
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 122px);
@@ -36,19 +38,6 @@
   &__title {
     @media (max-width: sizes.$layout-breakpoint-small) {
       order: 3;
-    }
-  }
-
-  &--fade-in {
-    animation: fadeIn 2s;
-  }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
     }
   }
 }
