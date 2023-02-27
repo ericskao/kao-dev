@@ -14,7 +14,7 @@ const Home: React.FC<PageProps> = () => {
     // check local storage to see if animation has been shown before
     // if yes, skip animation and render home
     // if not, show animation
-    const animatedBefore = localStorage.getItem('animatedBefore');
+    const animatedBefore = localStorage.getItem('animatedBefore') !== null;
     if (false) {
       console.log('not animated before');
       // localStorage.setItem('animatedBefore', 'true');

@@ -7,7 +7,7 @@ const ThesisTwoCompanies = () => {
   return (
     <>
       <li>
-        <div className="company">
+        <a href="https://www.chorus.ai/" target="_blank" className="company">
           <div className="company__logo-container">
             <StaticImage
               src="../images/companies/chorus.png"
@@ -21,16 +21,16 @@ const ThesisTwoCompanies = () => {
             Looker: Lorum ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
           </div>
-        </div>
+        </a>
       </li>
       <li>
-        <div className="company">
+        <a href="https://lilt.com/" target="_blank" className="company">
           <div className="company__logo-container">
             <StaticImage
               src="../images/companies/lilt.png"
-              alt="LILT-logo"
+              alt="lilt-logo"
               placeholder="blurred"
-              width={180}
+              width={90}
               className="company__logo"
             />
           </div>
@@ -38,16 +38,16 @@ const ThesisTwoCompanies = () => {
             Hex: Lorum ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
           </div>
-        </div>
+        </a>
       </li>
       <li>
-        <div className="company">
+        <a target="_blank" href="https://www.spot.ai/" className="company">
           <div className="company__logo-container">
             <StaticImage
               src="../images/companies/spotai.png"
               alt="spot-ai-logo"
               placeholder="blurred"
-              width={180}
+              width={100}
               className="company__logo"
             />
           </div>
@@ -55,7 +55,7 @@ const ThesisTwoCompanies = () => {
             Hex: Lorum ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
           </div>
-        </div>
+        </a>
       </li>
     </>
   );

@@ -7,13 +7,13 @@ const ThesisTwoCompanies = () => {
   return (
     <>
       <li>
-        <div className="company">
+        <a href="https://arbitrum.io/" target="_blank" className="company">
           <div className="company__logo-container">
             <StaticImage
               src="../images/companies/Looker.png"
               alt="looker-logo"
               placeholder="blurred"
-              width={180}
+              width={100}
               className="company__logo"
             />
           </div>
@@ -21,16 +21,16 @@ const ThesisTwoCompanies = () => {
             Looker: Lorum ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
           </div>
-        </div>
+        </a>
       </li>
       <li>
-        <div className="company">
+        <a href="https://mystenlabs.com/" target="_blank" className="company">
           <div className="company__logo-container">
             <StaticImage
               src="../images/companies/HEX.png"
               alt="HEX-logo"
               placeholder="blurred"
-              width={180}
+              width={100}
               className="company__logo"
             />
           </div>
@@ -38,7 +38,7 @@ const ThesisTwoCompanies = () => {
             Hex: Lorum ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
           </div>
-        </div>
+        </a>
       </li>
     </>
   );

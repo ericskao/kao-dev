@@ -47,7 +47,7 @@ const Theses = () => {
         </section>
         <section className="theses__section">
           <div className="theses__pair">
-            <h2 className="theses__key">Thesis 2:</h2>
+            <h2 className="theses__key">Thesis 3:</h2>
             <h3 className="theses__value">
               <b>Decentralized infrastructure as database: </b> blockchain technologies invert data
               ownership by shifting control to the end user. This new architecture transforms the
