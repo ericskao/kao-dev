@@ -11,7 +11,7 @@ interface PageLinkType {
 }
 
 const PAGE_LINKS: PageLinkType[] = [
-  { text: 'Stories', url: '/stories' },
+  { text: 'Story', url: '/story' },
   { text: 'Theses', url: '/theses' },
   { text: 'Blog', url: '/blog' },
   { text: 'Team', url: '/team' },
