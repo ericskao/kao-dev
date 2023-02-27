@@ -1,7 +1,7 @@
 import PageLayout from '../components/PageLayout';
 
-const Stories = () => {
+const Story = () => {
   return <PageLayout title="Stories">Content here</PageLayout>;
 };
 
-export default Stories;
+export default Story;
