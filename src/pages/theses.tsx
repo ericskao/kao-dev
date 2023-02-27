@@ -1,5 +1,6 @@
 import { HeadFC } from 'gatsby';
 import { useEffect } from 'react';
+import FadeInSection from '../components/FadeInSection';
 import PageLayout from '../components/PageLayout';
 import ThesisOneCompanies from '../components/ThesisOneCompanies';
 import ThesisThreeCompanies from '../components/ThesisThreeCompanies';
@@ -31,33 +32,37 @@ const Theses = () => {
             <ThesisOneCompanies />
           </ul>
         </section>
-        <section className="theses__section">
-          <div className="theses__pair">
-            <h2 className="theses__key">Thesis 2:</h2>
-            <h3 className="theses__value">
-              <b>Machine Learning as a Force Multiplier:</b> there are four types of machine
-              learning: classification, prediction, interpretation, & generation. Modern software
-              embeds these four type of ML into workflows which anticipate user needs & enable
-              workers to operate at a superior level of abstraction.
-            </h3>
-          </div>
-          <div className="theses__companies">
-            <ThesisTwoCompanies />
-          </div>
-        </section>
-        <section className="theses__section">
-          <div className="theses__pair">
-            <h2 className="theses__key">Thesis 3:</h2>
-            <h3 className="theses__value">
-              <b>Decentralized infrastructure as database: </b> blockchain technologies invert data
-              ownership by shifting control to the end user. This new architecture transforms the
-              relationship amongst users, assets, & businesses.
-            </h3>
-          </div>
-          <div className="theses__companies">
-            <ThesisThreeCompanies />
-          </div>
-        </section>
+        <FadeInSection>
+          <section className="theses__section">
+            <div className="theses__pair">
+              <h2 className="theses__key">Thesis 2:</h2>
+              <h3 className="theses__value">
+                <b>Machine Learning as a Force Multiplier:</b> there are four types of machine
+                learning: classification, prediction, interpretation, & generation. Modern software
+                embeds these four type of ML into workflows which anticipate user needs & enable
+                workers to operate at a superior level of abstraction.
+              </h3>
+            </div>
+            <div className="theses__companies">
+              <ThesisTwoCompanies />
+            </div>
+          </section>
+        </FadeInSection>
+        <FadeInSection>
+          <section className="theses__section">
+            <div className="theses__pair">
+              <h2 className="theses__key">Thesis 3:</h2>
+              <h3 className="theses__value">
+                <b>Decentralized infrastructure as database: </b> blockchain technologies invert
+                data ownership by shifting control to the end user. This new architecture transforms
+                the relationship amongst users, assets, & businesses.
+              </h3>
+            </div>
+            <div className="theses__companies">
+              <ThesisThreeCompanies />
+            </div>
+          </section>
+        </FadeInSection>
       </main>
     </PageLayout>
   );
