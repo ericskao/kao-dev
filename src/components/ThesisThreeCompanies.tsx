@@ -10,10 +10,10 @@ const ThesisTwoCompanies = () => {
         <a href="https://arbitrum.io/" target="_blank" className="company">
           <div className="company__logo-container">
             <StaticImage
-              src="../images/companies/Looker.png"
-              alt="looker-logo"
+              src="../images/companies/arbitrum.png"
+              alt="arbitrum-logo"
               placeholder="blurred"
-              width={100}
+              width={90}
               className="company__logo"
             />
           </div>
@@ -27,10 +27,10 @@ const ThesisTwoCompanies = () => {
         <a href="https://mystenlabs.com/" target="_blank" className="company">
           <div className="company__logo-container">
             <StaticImage
-              src="../images/companies/HEX.png"
-              alt="HEX-logo"
+              src="../images/companies/Mysten_labs.png"
+              alt="mysten-labs-logo"
               placeholder="blurred"
-              width={100}
+              width={180}
               className="company__logo"
             />
           </div>
