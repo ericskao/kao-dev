@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import NavBar from './NavBar';
 import logo from '../images/theory-animation-small.gif';
-import { Link } from 'gatsby';
+import { HeadFC, Link } from 'gatsby';
 
 import './PageLayout.scss';
 import MobileNavBar from './MobileNavBar';
@@ -67,3 +67,7 @@ const PageLayout: React.FC<PageLayoutType> = ({ children, title }) => {
 };
 
 export default PageLayout;
+
+export const Head: HeadFC = () => (
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+);
