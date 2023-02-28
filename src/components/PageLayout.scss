@@ -28,7 +28,7 @@
     @media (max-width: sizes.$layout-breakpoint-small) {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 0;
+      margin-bottom: -10px;
       align-items: center;
     }
   }

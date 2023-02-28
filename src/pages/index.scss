@@ -18,5 +18,9 @@
     line-height: sizes.$line-height-large;
     font-weight: sizes.$font-regular;
     width: 882px;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      font-size: sizes.$size-mobile-large;
+    }
   }
 }
