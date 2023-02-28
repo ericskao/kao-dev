@@ -14,11 +14,22 @@
     order: 1;
   }
 
+  &__hamburger {
+    display: none;
+    height: 24px;
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      display: block;
+    }
+  }
+
   &__logo {
     margin-bottom: 24px;
+
     @media (max-width: sizes.$layout-breakpoint-small) {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
+      margin-bottom: 0;
+      align-items: center;
     }
   }
 

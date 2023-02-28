@@ -1,0 +1,37 @@
+@use "../styles/abstracts/sizes";
+@use "../styles/abstracts/colors";
+
+.mobile-nav {
+  text-align: right;
+
+  // this nav should never show past mobile screen size
+  @media (min-width: sizes.$layout-breakpoint-small) {
+    display: none;
+  }
+
+  .open {
+    margin-bottom: 40px;
+    margin-top: -20px;
+  }
+
+  .close {
+  }
+
+  ul {
+    li:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__social {
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__hr {
+    margin-top: 20px;
+    border: 0.5px solid colors.$primary;
+  }
+}

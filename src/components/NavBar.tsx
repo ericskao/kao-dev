@@ -2,29 +2,22 @@ import LinkedIn from '../images/svgs/LinkedIn';
 import Twitter from '../images/svgs/Twitter';
 import TheoryLogo from '../images/svgs/TheoryLogo';
 import { Link } from 'gatsby';
+import { PageLinkType } from './PageLayout';
 
 import './NavBar.scss';
 
-interface PageLinkType {
-  text: string;
-  url: string;
+interface NavBarType {
+  links: PageLinkType[];
 }
 
-const PAGE_LINKS: PageLinkType[] = [
-  { text: 'Story', url: '/story' },
-  { text: 'Theses', url: '/theses' },
-  { text: 'Blog', url: '/blog' },
-  { text: 'Team', url: '/team' },
-];
-
-const NavBar: React.FC = () => {
+const NavBar: React.FC<NavBarType> = ({ links }) => {
   return (
     <nav className="navbar">
       <Link className="navbar__logo" to="/">
         <TheoryLogo />
       </Link>
       <ul className="navbar__items">
-        {PAGE_LINKS.map((link, index) => (
+        {links.map((link, index) => (
           <li key={index}>
             <Link className="navbar__page-links" to={link.url}>
               {link.text}

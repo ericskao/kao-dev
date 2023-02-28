@@ -16,7 +16,7 @@
 // overriding base styles
 body {
   margin: 0;
-  background-color: #bcc9da;
+  background-color: colors.$bg-color;
   font-family: DMSans;
   color: colors.$primary;
 
@@ -42,7 +42,8 @@ body {
   h3,
   h4,
   figure,
-  p {
+  p,
+  ul {
     margin: 0;
   }
 }
