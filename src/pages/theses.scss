@@ -15,6 +15,10 @@
 
   section:not(:last-child) {
     margin-bottom: 143px;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      margin-bottom: 30px;
+    }
   }
 
   section:last-child {
@@ -24,6 +28,9 @@
   &__key {
     min-width: 180px;
     text-align: right;
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      text-align: left;
+    }
   }
 
   &__value {
@@ -43,6 +50,10 @@
   &__pair {
     display: flex;
     gap: 36px;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      display: block;
+    }
   }
 
   &__companies {

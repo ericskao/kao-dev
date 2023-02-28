@@ -5,6 +5,7 @@ import { Link } from 'gatsby';
 
 import './PageLayout.scss';
 import MobileNavBar from './MobileNavBar';
+import TheoryLogo from '../images/svgs/TheoryLogo';
 
 export interface PageLinkType {
   text: string;
@@ -47,6 +48,7 @@ const PageLayout: React.FC<PageLayoutType> = ({ children, title }) => {
             <img className="layout__logo-image" src={logo} alt="theory-ventures-logo" />
           </Link>
         </figure>
+        {/* this button only shows on mobile */}
         <button className="layout__hamburger" onClick={onNavToggle}>
           {navOpen ? 'close' : 'hamburger'} button
         </button>
@@ -55,6 +57,11 @@ const PageLayout: React.FC<PageLayoutType> = ({ children, title }) => {
       {title && <h1 className="layout__title">{title}</h1>}
       {children}
       <NavBar links={PAGE_LINKS} />
+      <div className="layout__mobile-logo">
+        <Link className="" to="/">
+          <TheoryLogo />
+        </Link>
+      </div>
     </div>
   );
 };

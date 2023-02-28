@@ -15,6 +15,10 @@
     @include effects.fadeIn(1s);
     padding-left: 380px;
     width: 850px;
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      width: auto;
+      padding-left: 0;
+    }
   }
 
   &__article:not(:last-child) {
