@@ -36,6 +36,9 @@
 
     li {
       font-size: sizes.$size-small;
+      &:active {
+        opacity: 0.7;
+      }
     }
 
     // hovering over social links
