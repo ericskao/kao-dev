@@ -6,11 +6,8 @@
   background-color: colors.$bg-color;
   width: 100vw;
   height: 100vh;
-
-  @media (max-width: sizes.$layout-breakpoint-small) {
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
 
   img {
     width: 100%;
