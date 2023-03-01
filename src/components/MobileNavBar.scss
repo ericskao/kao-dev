@@ -1,0 +1,41 @@
+@use "../styles/abstracts/sizes";
+@use "../styles/abstracts/colors";
+
+.mobile-nav {
+  text-align: right;
+  transition: height 0.15s ease-out;
+
+  // this nav should never show past mobile screen size
+  @media (min-width: sizes.$layout-breakpoint-small) {
+    display: none;
+  }
+
+  ul {
+    max-height: 0;
+    transition: max-height 0.15s ease-out;
+    overflow: hidden;
+  }
+
+  .open {
+    max-height: 500px;
+    transition: max-height 0.25s ease-in;
+  }
+
+  ul {
+    li:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__social {
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__hr {
+    margin-top: 20px;
+    border: 0.5px solid colors.$primary;
+  }
+}

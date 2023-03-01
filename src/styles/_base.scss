@@ -1,0 +1,49 @@
+@use "../styles/abstracts/colors";
+
+// load font
+@font-face {
+  font-family: "DMSans";
+  src: local("DMSans"), url("../static/fonts/DMSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "DMSans";
+  src: local("DMSans"), url("../static/fonts/DMSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+// overriding base styles
+body {
+  margin: 0;
+  background-color: colors.$bg-color;
+  font-family: DMSans;
+  color: colors.$primary;
+
+  main {
+    padding: 0 !important;
+  }
+
+  a {
+    text-decoration: none;
+    color: colors.$primary;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  figure,
+  p,
+  ul {
+    margin: 0;
+  }
+}

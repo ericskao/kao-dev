@@ -1,0 +1,40 @@
+@use "../styles/abstracts/sizes";
+
+.team {
+  @media (max-width: sizes.$layout-breakpoint-small) {
+    order: 3;
+  }
+
+  &__member {
+    display: flex;
+    padding-left: 55px;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      display: block;
+      padding-left: 0;
+    }
+  }
+
+  &__member-name {
+    font-weight: sizes.$font-regular;
+    font-size: sizes.$size-regular;
+    line-height: sizes.$line-height-regular;
+    margin-right: 22px;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      margin-right: 0;
+    }
+  }
+
+  &__member-description {
+    font-weight: sizes.$font-regular;
+    font-size: sizes.$size-regular;
+    line-height: sizes.$line-height-regular;
+    width: 817px;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      width: auto;
+      font-size: sizes.$size-mobile-large;
+    }
+  }
+}

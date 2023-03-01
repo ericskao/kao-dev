@@ -1,0 +1,66 @@
+@use "../styles/abstracts/sizes";
+
+.theses {
+  @media (max-width: sizes.$layout-breakpoint-small) {
+    order: 3;
+  }
+
+  &__section {
+    padding-left: 190px;
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      flex-direction: column;
+      padding-left: 0;
+    }
+  }
+
+  section:not(:last-child) {
+    margin-bottom: 143px;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      margin-bottom: 30px;
+    }
+  }
+
+  section:last-child {
+    margin-bottom: 190px;
+  }
+
+  &__key {
+    min-width: 180px;
+    text-align: right;
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      text-align: left;
+    }
+  }
+
+  &__value {
+    width: 817px;
+    line-height: sizes.$line-height-regular;
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      width: auto;
+    }
+  }
+
+  &__key,
+  &__value {
+    font-size: sizes.$size-regular;
+    font-weight: sizes.$font-regular;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      font-size: sizes.$size-mobile-large;
+    }
+  }
+
+  &__pair {
+    display: flex;
+    gap: 36px;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      display: block;
+    }
+  }
+
+  &__companies {
+    margin-top: 60px;
+  }
+}

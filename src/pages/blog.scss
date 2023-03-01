@@ -1,0 +1,59 @@
+@use "../styles/abstracts/sizes";
+@use "../styles/abstracts/effects";
+@use "../styles/abstracts/colors";
+
+.blog {
+  @media (max-width: sizes.$layout-breakpoint-small) {
+    order: 3;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  &__section {
+    @include effects.fadeIn(1s);
+    padding-left: 380px;
+    width: 850px;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      width: auto;
+      padding-left: 0;
+    }
+  }
+
+  &__article:not(:last-child) {
+    margin-bottom: 30px;
+  }
+
+  &__article-title {
+    font-size: sizes.$size-regular;
+    line-height: sizes.$line-height-regular;
+    font-weight: sizes.$font-regular;
+    @include effects.underline(400ms, 2px);
+
+    &:hover {
+      text-decoration-color: colors.$primary;
+    }
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      font-size: sizes.$size-mobile-large;
+    }
+  }
+
+  &__date {
+    font-size: sizes.$size-small;
+    line-height: sizes.$line-height-small;
+    font-weight: sizes.$font-regular;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      font-size: sizes.$size-mobile-small;
+    }
+  }
+
+  &__read-more {
+    padding: 40px 0 140px 0;
+    font-size: sizes.$size-small;
+    font-weight: sizes.$font-regular;
+  }
+}

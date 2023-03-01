@@ -1,0 +1,17 @@
+.company {
+  display: flex;
+  margin-bottom: 33px;
+  gap: 36px;
+
+  &__description {
+    flex-basis: 817px;
+  }
+
+  &__logo-container {
+    width: 180px;
+  }
+
+  &__logo {
+    float: right;
+  }
+}
