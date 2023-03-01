@@ -15,6 +15,7 @@
     @include effects.fadeIn(1s);
     padding-left: 380px;
     width: 850px;
+
     @media (max-width: sizes.$layout-breakpoint-small) {
       width: auto;
       padding-left: 0;
@@ -30,8 +31,13 @@
     line-height: sizes.$line-height-regular;
     font-weight: sizes.$font-regular;
     @include effects.underline(400ms, 2px);
+
     &:hover {
       text-decoration-color: colors.$primary;
+    }
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      font-size: sizes.$size-mobile-large;
     }
   }
 
@@ -39,6 +45,10 @@
     font-size: sizes.$size-small;
     line-height: sizes.$line-height-small;
     font-weight: sizes.$font-regular;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      font-size: sizes.$size-mobile-small;
+    }
   }
 
   &__read-more {

@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import NavBar from './NavBar';
 import logo from '../images/theory-animation-small.gif';
 import { HeadFC, Link } from 'gatsby';
-
-import './PageLayout.scss';
 import MobileNavBar from './MobileNavBar';
 import TheoryLogo from '../images/svgs/TheoryLogo';
+import CloseIcon from '../images/svgs/CloseIcon';
+import HamburgerIcon from '../images/svgs/HamburgerIcon';
+
+import './PageLayout.scss';
 
 export interface PageLinkType {
   text: string;
@@ -50,7 +52,7 @@ const PageLayout: React.FC<PageLayoutType> = ({ children, title }) => {
         </figure>
         {/* this button only shows on mobile */}
         <button className="layout__hamburger" onClick={onNavToggle}>
-          {navOpen ? 'close' : 'hamburger'} button
+          {navOpen ? <CloseIcon /> : <HamburgerIcon />}
         </button>
       </header>
       <MobileNavBar links={PAGE_LINKS} open={navOpen} />

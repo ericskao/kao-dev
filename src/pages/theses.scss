@@ -45,6 +45,10 @@
   &__value {
     font-size: sizes.$size-regular;
     font-weight: sizes.$font-regular;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      font-size: sizes.$size-mobile-large;
+    }
   }
 
   &__pair {

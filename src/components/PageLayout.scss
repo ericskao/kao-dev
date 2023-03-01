@@ -16,8 +16,13 @@
   }
 
   &__hamburger {
+    border: 0;
+    background-color: transparent;
     display: none;
     height: 24px;
+    &:active {
+      opacity: 0.4;
+    }
     @media (max-width: sizes.$layout-breakpoint-small) {
       display: block;
     }
@@ -57,6 +62,7 @@
     margin-bottom: 70px;
     @media (max-width: sizes.$layout-breakpoint-small) {
       margin-bottom: 20px;
+      font-size: 34px;
     }
   }
 
