@@ -20,7 +20,9 @@
     width: 882px;
 
     @media (max-width: sizes.$layout-breakpoint-small) {
+      margin-top: 20px;
       font-size: sizes.$size-mobile-large;
+      line-height: 36px;
     }
   }
 }

@@ -13,6 +13,8 @@
     padding: 18px 25px 0 25px;
     order: 1;
     min-height: calc(100vh - 19px);
+    /* mobile viewport bug fix */
+    min-height: -webkit-fill-available;
   }
 
   &__hamburger {
@@ -50,6 +52,7 @@
   }
 
   &__logo-image {
+    min-width: 74px;
     width: 130px;
     margin-left: -50px;
   }
@@ -61,14 +64,17 @@
     font-weight: sizes.$font-heavy;
     margin-bottom: 70px;
     @media (max-width: sizes.$layout-breakpoint-small) {
+      padding-top: 10px;
       margin-bottom: 20px;
       font-size: 34px;
     }
   }
 
-  &__title {
+  &__title-container {
+    display: flex;
+
     @media (max-width: sizes.$layout-breakpoint-small) {
-      order: 3;
+      display: block;
     }
   }
 }

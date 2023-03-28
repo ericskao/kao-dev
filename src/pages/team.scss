@@ -1,13 +1,14 @@
 @use "../styles/abstracts/sizes";
 
 .team {
+  margin-bottom: 140px;
   @media (max-width: sizes.$layout-breakpoint-small) {
     order: 3;
   }
 
   &__member {
     display: flex;
-    padding-left: 55px;
+    padding-left: 200px;
 
     @media (max-width: sizes.$layout-breakpoint-small) {
       display: block;
@@ -19,22 +20,39 @@
     font-weight: sizes.$font-regular;
     font-size: sizes.$size-regular;
     line-height: sizes.$line-height-regular;
-    margin-right: 22px;
+    font-weight: sizes.$font-heavy;
 
     @media (max-width: sizes.$layout-breakpoint-small) {
       margin-right: 0;
     }
   }
 
-  &__member-description {
-    font-weight: sizes.$font-regular;
-    font-size: sizes.$size-regular;
-    line-height: sizes.$line-height-regular;
-    width: 817px;
+  &__profile {
+    border-radius: 200px;
+    width: 120px;
+    height: 120px;
+    min-width: 120px;
+    margin-right: 36px;
 
     @media (max-width: sizes.$layout-breakpoint-small) {
-      width: auto;
-      font-size: sizes.$size-mobile-large;
+      margin-bottom: 10px;
+      margin-top: 50px;
+    }
+
+
+    img {
+      border-radius: 200px; // required for safari
+    }
+  }
+
+  &__profile-info {
+    max-width: 800px;
+    p:first-of-type {
+      margin-top: 10px;
+    }
+    p {
+      font-size: 22px;
+      line-height: sizes.$line-height-mobile;
     }
   }
 }

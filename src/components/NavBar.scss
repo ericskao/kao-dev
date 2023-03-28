@@ -3,9 +3,16 @@
 @use "../styles/abstracts/effects";
 
 .navbar {
+  position: fixed;
+  bottom: 0;
+  left: 86px;
   display: flex;
   margin-top: auto;
   justify-content: space-between;
+  width: calc(100vw - 172px);
+  box-shadow: 2px 2px 30px 30px colors.$bg-color;
+  background-color: colors.$bg-color;
+  padding-bottom: 68px;
 
   @media (max-width: sizes.$layout-breakpoint-small) {
     margin-top: 0;

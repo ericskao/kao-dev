@@ -32,12 +32,18 @@
     font-weight: sizes.$font-regular;
     @include effects.underline(400ms, 2px);
 
-    &:hover {
-      text-decoration-color: colors.$primary;
+    p {
+      margin-bottom: 4px;
+      line-height: 40px;
+
+      @media (max-width: sizes.$layout-breakpoint-small) {
+        font-size: 22px;
+        line-height: sizes.$line-height-mobile;
+      }
     }
 
-    @media (max-width: sizes.$layout-breakpoint-small) {
-      font-size: sizes.$size-mobile-large;
+    &:hover {
+      text-decoration-color: colors.$primary;
     }
   }
 
@@ -47,7 +53,7 @@
     font-weight: sizes.$font-regular;
 
     @media (max-width: sizes.$layout-breakpoint-small) {
-      font-size: sizes.$size-mobile-small;
+      font-size: 14px;
     }
   }
 

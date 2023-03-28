@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import NavBar from './NavBar';
 import logo from '../images/theory-animation-small.gif';
-import { HeadFC, Link } from 'gatsby';
+import { Link } from 'gatsby';
 import MobileNavBar from './MobileNavBar';
 import TheoryLogo from '../images/svgs/TheoryLogo';
 import CloseIcon from '../images/svgs/CloseIcon';
@@ -15,10 +15,9 @@ export interface PageLinkType {
 }
 
 const PAGE_LINKS: PageLinkType[] = [
-  { text: 'Story', url: '/story' },
   { text: 'Theses', url: '/theses' },
   { text: 'Blog', url: '/blog' },
-  { text: 'Team', url: '/team' },
+  { text: 'About', url: '/about' },
 ];
 
 export const twitterLink = 'https://twitter.com/ttunguz';
@@ -26,11 +25,16 @@ export const linkedInLink = 'https://www.linkedin.com/in/tomasztunguz/';
 interface PageLayoutType {
   children: React.ReactNode;
   title?: string; // PageLayout can take optional title as header for the page
+  pageDescription?: React.ReactNode;
 }
 
-const PageLayout: React.FC<PageLayoutType> = ({ children, title }) => {
+const PageLayout: React.FC<PageLayoutType> = ({ children, title, pageDescription }) => {
   const [initialRenderComplete, setInitialRenderComplete] = useState(false);
   const [navOpen, toggleNav] = useState(false);
+
+  useEffect(() => {
+    document.body.style.height = window.innerHeight + 'px';
+  }, []);
 
   useEffect(() => {
     // for fixing react hydration UI issues (mismatch beteween server side rendering and initial client render)
@@ -43,7 +47,7 @@ const PageLayout: React.FC<PageLayoutType> = ({ children, title }) => {
 
   if (!initialRenderComplete) return null;
   return (
-    <div className="layout layout--fade-in">
+    <div className="layout">
       <header className="layout__logo">
         <figure>
           <Link to="/">
@@ -56,7 +60,11 @@ const PageLayout: React.FC<PageLayoutType> = ({ children, title }) => {
         </button>
       </header>
       <MobileNavBar links={PAGE_LINKS} open={navOpen} />
-      {title && <h1 className="layout__title">{title}</h1>}
+      <div className="layout__title-container">
+        {title && <h1 className="layout__title">{title}</h1>}
+        {pageDescription && pageDescription}
+      </div>
+
       {children}
       <NavBar links={PAGE_LINKS} />
       <div className="layout__mobile-logo">
@@ -69,7 +77,3 @@ const PageLayout: React.FC<PageLayoutType> = ({ children, title }) => {
 };
 
 export default PageLayout;
-
-export const Head: HeadFC = () => (
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-);

@@ -13,6 +13,16 @@
   font-weight: 700;
 }
 
+@font-face {
+  font-family: "DMMono";
+  src: local("DMMono"), url("../static/fonts/DMMono-Light.ttf") format("truetype");
+  font-weight: 400;
+}
+
+html{
+  height: -webkit-fill-available;
+}
+
 // overriding base styles
 body {
   margin: 0;
@@ -42,7 +52,6 @@ body {
   h3,
   h4,
   figure,
-  p,
   ul {
     margin: 0;
   }

@@ -15,10 +15,10 @@ const Home: React.FC<PageProps> = () => {
     // if yes, skip animation and render home
     // if not, show animation
     const animatedBefore = localStorage.getItem('animatedBefore') !== null;
-    if (false) {
-      console.log('not animated before');
-      // localStorage.setItem('animatedBefore', 'true');
+    if (animatedBefore) {
+      setShowContent(true);
     } else {
+      localStorage.setItem('animatedBefore', 'true');
       playLoading();
     }
   }, []);
@@ -27,10 +27,8 @@ const Home: React.FC<PageProps> = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      setTimeout(() => {
-        setShowContent(true);
-      }, 250);
-    }, 4700);
+      setShowContent(true);
+    }, 6000);
   };
 
   return (
@@ -40,7 +38,10 @@ const Home: React.FC<PageProps> = () => {
         <PageLayout>
           <main className="home">
             <h1 className="home__header">
-              <article>Testing portfolio</article>
+              <article>
+                We invest $1-25m in early stage software companies that leverage technology
+                discontinuities into go-to-market advantages.
+              </article>
             </h1>
           </main>
         </PageLayout>
