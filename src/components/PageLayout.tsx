@@ -14,11 +14,7 @@ export interface PageLinkType {
   url: string;
 }
 
-const PAGE_LINKS: PageLinkType[] = [
-  { text: 'Theses', url: '/theses' },
-  { text: 'Blog', url: '/blog' },
-  { text: 'About', url: '/about' },
-];
+const PAGE_LINKS: PageLinkType[] = [{ text: 'About', url: '/about' }];
 
 export const twitterLink = 'https://twitter.com/ttunguz';
 export const linkedInLink = 'https://www.linkedin.com/in/tomasztunguz/';
