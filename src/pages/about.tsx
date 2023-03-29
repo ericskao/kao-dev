@@ -26,4 +26,4 @@ const Team = () => {
 
 export default Team;
 
-export const Head: HeadFC = () => <title>Theory Ventures - About</title>;
+export const Head: HeadFC = () => <title>Eric Kao - About</title>;

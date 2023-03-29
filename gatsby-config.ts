@@ -2,10 +2,9 @@ import type { GatsbyConfig } from 'gatsby';
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `Theory Ventures`,
-    siteUrl: `https://tventuresmobileview.gatsbyjs.io/`,
-    description: `We invest $1-25m in early stage software companies that leverage technology discontinuities into go-to-market advantages.`,
-    twitterUsername: `@ttunguz`,
+    title: `Eric Kao`,
+    siteUrl: `https://www.ericskao.com`,
+    description: `Eric Kao Software Engineer.`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -29,8 +28,8 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: 'https://tventuresmobileview.gatsbyjs.io/',
-        sitemap: 'https://tventuresmobileview.gatsbyjs.io/sitemap.xml',
+        host: 'https://www.ericskao.com',
+        sitemap: 'https://www.ericskao.com/sitemap.xml',
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },

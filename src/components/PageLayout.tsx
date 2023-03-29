@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import NavBar from './NavBar';
-import logo from '../images/theory-animation-small.gif';
 import { Link } from 'gatsby';
 import MobileNavBar from './MobileNavBar';
-import TheoryLogo from '../images/svgs/TheoryLogo';
 import CloseIcon from '../images/svgs/CloseIcon';
 import HamburgerIcon from '../images/svgs/HamburgerIcon';
 
@@ -16,8 +14,7 @@ export interface PageLinkType {
 
 const PAGE_LINKS: PageLinkType[] = [{ text: 'About', url: '/about' }];
 
-export const twitterLink = 'https://twitter.com/ttunguz';
-export const linkedInLink = 'https://www.linkedin.com/in/tomasztunguz/';
+export const linkedInLink = 'https://www.linkedin.com/in/erkao/';
 interface PageLayoutType {
   children: React.ReactNode;
   title?: string; // PageLayout can take optional title as header for the page
@@ -25,30 +22,17 @@ interface PageLayoutType {
 }
 
 const PageLayout: React.FC<PageLayoutType> = ({ children, title, pageDescription }) => {
-  const [initialRenderComplete, setInitialRenderComplete] = useState(false);
   const [navOpen, toggleNav] = useState(false);
-
-  useEffect(() => {
-    document.body.style.height = window.innerHeight + 'px';
-  }, []);
-
-  useEffect(() => {
-    // for fixing react hydration UI issues (mismatch beteween server side rendering and initial client render)
-    setInitialRenderComplete(true);
-  }, []);
 
   const onNavToggle = () => {
     toggleNav(!navOpen);
   };
 
-  if (!initialRenderComplete) return null;
   return (
     <div className="layout">
       <header className="layout__logo">
         <figure>
-          <Link to="/">
-            <img className="layout__logo-image" src={logo} alt="theory-ventures-logo" />
-          </Link>
+          <Link to="/">EK</Link>
         </figure>
         {/* this button only shows on mobile */}
         <button className="layout__hamburger" onClick={onNavToggle}>
@@ -60,12 +44,11 @@ const PageLayout: React.FC<PageLayoutType> = ({ children, title, pageDescription
         {title && <h1 className="layout__title">{title}</h1>}
         {pageDescription && pageDescription}
       </div>
-
       {children}
       <NavBar links={PAGE_LINKS} />
       <div className="layout__mobile-logo">
         <Link className="" to="/">
-          <TheoryLogo />
+          Eric Kao
         </Link>
       </div>
     </div>
