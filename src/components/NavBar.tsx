@@ -1,9 +1,10 @@
 import LinkedIn from '../images/svgs/LinkedIn';
 import { Link } from 'gatsby';
 import { PageLinkType } from './PageLayout';
-
-import './NavBar.scss';
 import Github from '../images/svgs/Github';
+import logo from '../images/mainLogo.png';
+import './NavBar.scss';
+import Logo from '../images/svgs/Logo';
 
 interface NavBarType {
   links: PageLinkType[];
@@ -13,7 +14,7 @@ const NavBar: React.FC<NavBarType> = ({ links }) => {
   return (
     <nav className="navbar">
       <Link className="navbar__logo" to="/">
-        {/* EKAO */}
+        <Logo />
       </Link>
       <ul className="navbar__items">
         {links.map((link, index) => (

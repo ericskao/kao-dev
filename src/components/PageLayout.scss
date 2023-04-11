@@ -32,6 +32,9 @@
 
   &__logo {
     margin-bottom: 24px;
+    img {
+      height: 60px;
+    }
 
     @media (max-width: sizes.$layout-breakpoint-small) {
       display: flex;

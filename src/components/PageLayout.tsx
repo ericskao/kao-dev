@@ -4,9 +4,9 @@ import { Link } from 'gatsby';
 import MobileNavBar from './MobileNavBar';
 import CloseIcon from '../images/svgs/CloseIcon';
 import HamburgerIcon from '../images/svgs/HamburgerIcon';
+import kaoLogo from '../images/kao.png';
 
 import './PageLayout.scss';
-import Logo from '../images/svgs/Logo';
 
 export interface PageLinkType {
   text: string;
@@ -34,7 +34,7 @@ const PageLayout: React.FC<PageLayoutType> = ({ children, title, pageDescription
     <div className="layout">
       <header className="layout__logo">
         <Link to="/">
-          <Logo />
+          <img src={kaoLogo} alt="kao logo" />
         </Link>
         {/* this button only shows on mobile */}
         <button className="layout__hamburger" onClick={onNavToggle}>

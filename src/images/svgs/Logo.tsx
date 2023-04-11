@@ -4,20 +4,20 @@ const Logo = () => {
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      height="140px"
+      width="100%"
+      height="80px"
       viewBox="0 0 1000 600"
-      style={{ marginLeft: '-30px' }}
     >
-      <rect width="auto" height="100%" x="0" y="0" fill="#bcc9da" />
+      <rect width="1000" height="600" x="0" y="0" fill="#bcc9da" />
       <g>
         <rect
-          width="333.3333333333333"
-          height="333.3333333333333"
-          rx="13.333333333333334"
-          ry="13.333333333333334"
+          width="440.3333333333333"
+          height="353.3333333333333"
+          rx="33.333333333333334"
+          ry="33.333333333333334"
           y="142.75793850984923"
           fill="#222288"
-          transform="matrix(1.0370370245341793,0,0,1.0370370245341793,0,-20.88477624975468)"
+          transform="matrix(.86,0,0,1.0370370245341793,0,-10.88477624975468)"
           x="120.53571319580078"
         />
         <path
