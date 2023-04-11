@@ -6,6 +6,7 @@ import CloseIcon from '../images/svgs/CloseIcon';
 import HamburgerIcon from '../images/svgs/HamburgerIcon';
 
 import './PageLayout.scss';
+import Logo from '../images/svgs/Logo';
 
 export interface PageLinkType {
   text: string;
@@ -15,6 +16,7 @@ export interface PageLinkType {
 const PAGE_LINKS: PageLinkType[] = [{ text: 'About', url: '/about' }];
 
 export const linkedInLink = 'https://www.linkedin.com/in/erkao/';
+export const githubLink = 'https://github.com/ericskao';
 interface PageLayoutType {
   children: React.ReactNode;
   title?: string; // PageLayout can take optional title as header for the page
@@ -31,9 +33,9 @@ const PageLayout: React.FC<PageLayoutType> = ({ children, title, pageDescription
   return (
     <div className="layout">
       <header className="layout__logo">
-        <figure>
-          <Link to="/">EK</Link>
-        </figure>
+        <Link to="/">
+          <Logo />
+        </Link>
         {/* this button only shows on mobile */}
         <button className="layout__hamburger" onClick={onNavToggle}>
           {navOpen ? <CloseIcon /> : <HamburgerIcon />}

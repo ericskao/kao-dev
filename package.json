@@ -1,11 +1,11 @@
 {
-  "name": "tomasz-tunguz",
+  "name": "eric-kao",
   "version": "1.0.0",
   "private": true,
-  "description": "tomasz-tunguz",
+  "description": "Eric Kao site",
   "author": "Eric K",
   "keywords": [
-    "gatsby"
+    "Eric Kao"
   ],
   "scripts": {
     "develop": "gatsby develop",

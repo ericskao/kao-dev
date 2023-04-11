@@ -31,7 +31,6 @@
 
   &__page-links {
     @include effects.underline(250ms, 3px);
-    margin-right: 96px;
     &:hover {
       text-decoration-color: colors.$primary;
     }
@@ -45,6 +44,15 @@
       font-size: sizes.$size-small;
       &:active {
         opacity: 0.7;
+      }
+      &:not(:last-child){
+        margin-right: 100px;
+      }
+    }
+
+    &--github {
+      svg {
+        height: 26px;
       }
     }
 

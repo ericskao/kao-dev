@@ -1,9 +1,10 @@
 import LinkedIn from '../images/svgs/LinkedIn';
-import Twitter from '../images/svgs/Twitter';
-import { linkedInLink, PageLinkType, twitterLink } from './PageLayout';
+// import Twitter from '../images/svgs/Twitter';
+import { githubLink, linkedInLink, PageLinkType } from './PageLayout';
 import { Link } from 'gatsby';
 
 import './MobileNavBar.scss';
+import Github from '../images/svgs/Github';
 
 interface MobileNavType {
   open: boolean;
@@ -13,8 +14,6 @@ interface MobileNavType {
 const MobileNavBar = ({ open, links }: MobileNavType) => {
   return (
     <nav className="mobile-nav">
-      {/* if open, set height and show items */}
-      {/* if close, set height to 0 */}
       <ul className={open ? 'open' : 'close'}>
         {links.map((link, index) => {
           return (
@@ -24,13 +23,13 @@ const MobileNavBar = ({ open, links }: MobileNavType) => {
           );
         })}
         <li>
-          <a className="mobile-nav__social" target="_blank" href={twitterLink}>
-            <Twitter />
+          <a className="mobile-nav__social" target="_blank" href={linkedInLink}>
+            <LinkedIn />
           </a>
         </li>
         <li>
-          <a className="mobile-nav__social" target="_blank" href={linkedInLink}>
-            <LinkedIn />
+          <a className="mobile-nav__social" target="_blank" href={githubLink}>
+            <Github />
           </a>
         </li>
         <hr className="mobile-nav__hr" />
