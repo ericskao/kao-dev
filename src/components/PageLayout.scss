@@ -27,15 +27,7 @@
     }
   }
 
-  &__title-container {
-    display: flex;
-
-    @media (max-width: sizes.$layout-breakpoint-small) {
-      display: block;
-    }
-  }
-
   &__content {
-    margin-top: 200px;
+    margin-top: 170px;
   }
 }

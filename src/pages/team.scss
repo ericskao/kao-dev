@@ -1,58 +1,49 @@
-@use "../styles/abstracts/sizes";
+@use '../styles/abstracts/sizes';
+@use '../styles/abstracts/colors';
 
-.team {
+.about {
   margin-bottom: 140px;
   @media (max-width: sizes.$layout-breakpoint-small) {
     order: 3;
   }
 
-  &__member {
-    display: flex;
-    padding-left: 200px;
-
-    @media (max-width: sizes.$layout-breakpoint-small) {
-      display: block;
-      padding-left: 0;
-    }
+  &__browser-container {
+    position: relative;
   }
 
-  &__member-name {
-    font-weight: sizes.$font-regular;
-    font-size: sizes.$size-regular;
-    line-height: sizes.$line-height-regular;
-    font-weight: sizes.$font-heavy;
-
-    @media (max-width: sizes.$layout-breakpoint-small) {
-      margin-right: 0;
-    }
+  &__browser-svg {
+    height: 70vh;
   }
 
-  &__profile {
-    border-radius: 200px;
-    width: 120px;
-    height: 120px;
-    min-width: 120px;
-    margin-right: 36px;
-
-    @media (max-width: sizes.$layout-breakpoint-small) {
-      margin-bottom: 10px;
-      margin-top: 50px;
-    }
-
-
-    img {
-      border-radius: 200px; // required for safari
-    }
+  &__browser-content {
+    position: absolute;
+    top: 100px;
+    left: 75px;
   }
 
-  &__profile-info {
-    max-width: 800px;
-    p:first-of-type {
-      margin-top: 10px;
-    }
+  &__profile-pic {
+    width: 160px;
+    border-radius: 99px;
+    border: 7px solid black;
+  }
+
+  &__paragraphs {
+    border: 6px solid black;
+    padding: 10px 20px;
+    margin-top: 30px;
+
     p {
-      font-size: 22px;
-      line-height: sizes.$line-height-mobile;
+      font-size: sizes.$size-small;
+      max-width: 900px;
+    }
+
+    a {
+      margin-left: 4px;
+      color: colors.$secondary;
+
+      &:hover {
+        font-weight: sizes.$font-heavy;
+      }
     }
   }
 }
