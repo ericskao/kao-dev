@@ -2,12 +2,6 @@
 @use '../styles/abstracts/sizes';
 
 .intro {
-  &__hi {
-    color: colors.$secondary;
-    font-weight: sizes.$font-heavy;
-    font-size: clamp(10px, 1.5vw, 16px);
-  }
-
   h1 {
     margin-top: 12px;
     font-size: clamp(40px, 8vw, 80px);
