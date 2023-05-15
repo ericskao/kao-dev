@@ -1,0 +1,29 @@
+@use '../styles/abstracts/sizes';
+@use '../styles/abstracts/colors';
+
+.jobs {
+  &__title {
+    font-weight: sizes.$font-heavy;
+    font-size: sizes.$size-xlarge;
+    color: colors.$secondary;
+  }
+
+  &__tabs {
+    position: relative;
+  }
+
+  &__tab {
+    border-left: 3px solid colors.$white-secondary;
+    padding: 12px 0 12px 20px;
+  }
+
+  .glider {
+    position: absolute;
+    height: 45px;
+    width: 4px;
+    top: 0;
+    background-color: colors.$secondary;
+    transition: 0.15s ease-in;
+    border-radius: 10px;
+  }
+}

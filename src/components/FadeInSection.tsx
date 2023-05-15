@@ -7,7 +7,7 @@ const FadeInSection = ({ children }: { children: React.ReactNode }) => {
   const domRef = useRef<any>();
 
   useEffect(() => {
-    const observer: any = new IntersectionObserver((entries) => {
+    const observer: IntersectionObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!isVisible && entry.isIntersecting) {
           setVisible(entry.isIntersecting);

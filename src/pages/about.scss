@@ -4,10 +4,17 @@
 .about {
   display: flex;
   align-items: center;
-  gap: 24px;
+  justify-content: center;
+  gap: 48px;
 
   @media (max-width: sizes.$layout-breakpoint-large) {
     display: block;
+  }
+
+  &__title {
+    font-weight: sizes.$font-heavy;
+    font-size: sizes.$size-xlarge;
+    color: colors.$secondary;
   }
 
   &__profile-pic {
@@ -25,20 +32,29 @@
 
   &__paragraphs {
     padding: 10px 20px;
-    margin-top: 30px;
 
     p {
+      line-height: sizes.$line-height-small;
       font-size: sizes.$size-small;
       max-width: 900px;
     }
 
     a {
-      margin-left: 4px;
-      color: colors.$secondary;
+      color: colors.$secondary-light;
 
       &:hover {
         font-weight: sizes.$font-heavy;
       }
+    }
+  }
+
+  &__link {
+    a {
+      color: colors.$secondary;
+    }
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      text-align: center;
     }
   }
 }

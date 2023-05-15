@@ -8,13 +8,16 @@ export interface PageLinkType {
   url: string;
 }
 
-const PAGE_LINKS: PageLinkType[] = [{ text: 'About', url: '/about' }];
+const PAGE_LINKS: PageLinkType[] = [
+  { text: 'About', url: '/about' },
+  { text: 'Career', url: '/jobs' },
+];
 
 export const linkedInLink = 'https://www.linkedin.com/in/erkao/';
 export const githubLink = 'https://github.com/ericskao';
 interface PageLayoutType {
   children: React.ReactNode;
-  title?: string;
+  title?: any;
   pageDescription?: React.ReactNode;
 }
 
@@ -23,7 +26,11 @@ const PageLayout: React.FC<PageLayoutType> = ({ children, title, pageDescription
     <div className="layout">
       <NavBar links={PAGE_LINKS} />
       <MobileNavBar links={PAGE_LINKS} />
-      <div className="layout__content">{children}</div>
+      <div>stuff</div>
+      <div className="layout__content">
+        {title && title}
+        {children}
+      </div>
     </div>
   );
 };
