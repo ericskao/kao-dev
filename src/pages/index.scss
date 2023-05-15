@@ -1,28 +1,11 @@
 // @import is being deprecated, so use dart sass (preferred sass lib), and use @use instead
-@use "../styles/abstracts/colors";
-@use "../styles/abstracts/sizes";
+@use '../styles/abstracts/colors';
+@use '../styles/abstracts/sizes';
 
 .root {
   position: relative;
 }
 
-.home {
-  display: flex;
-
-  @media (max-width: sizes.$layout-breakpoint-small) {
-    order: 2;
-  }
-
-  &__header {
-    font-size: sizes.$size-large;
-    line-height: sizes.$line-height-large;
-    font-weight: sizes.$font-regular;
-    width: 882px;
-
-    @media (max-width: sizes.$layout-breakpoint-small) {
-      margin-top: 20px;
-      font-size: sizes.$size-mobile-large;
-      line-height: 36px;
-    }
-  }
+.secondary-color {
+  color: colors.$secondary;
 }

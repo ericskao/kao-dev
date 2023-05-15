@@ -1,4 +1,5 @@
 import type { HeadFC, PageProps } from 'gatsby';
+import Intro from '../components/Intro';
 import PageLayout from '../components/PageLayout';
 
 import '../styles/_base.scss';
@@ -8,11 +9,7 @@ const Home: React.FC<PageProps> = () => {
   return (
     <div className="root">
       <PageLayout>
-        <main className="home">
-          <h1 className="home__header">
-            <article>Hi I'm Eric</article>
-          </h1>
-        </main>
+        <Intro />
       </PageLayout>
     </div>
   );
@@ -20,4 +17,4 @@ const Home: React.FC<PageProps> = () => {
 
 export default Home;
 
-export const Head: HeadFC = () => <title>Eric Kao</title>;
+export const Head: HeadFC = () => <title>Eric Kao, Software Engineer</title>;
