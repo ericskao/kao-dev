@@ -23,7 +23,21 @@
 
   &__tab {
     border-left: 3px solid colors.$white-secondary;
-    padding: 12px 0 12px 20px;
+    padding: 12px 20px;
+
+    &--selected {
+      font-weight: sizes.$font-heavy;
+      a {
+        color: colors.$secondary;
+      }
+    }
+
+    &:hover {
+      a {
+        color: colors.$secondary;
+      }
+      border-left: 4px solid colors.$secondary;
+    }
 
     a {
       font-size: sizes.$size-medium;
@@ -57,6 +71,7 @@
 
   &__company-tagline {
     font-size: sizes.$size-small;
+    font-weight: sizes.$font-medium;
     color: colors.$secondary;
   }
 
