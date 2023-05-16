@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { HeadFC } from 'gatsby';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PageLayout from '../components/PageLayout';
 
 import './jobs.scss';
@@ -51,7 +51,7 @@ const data: CompanyInterface[] = [
     period: 'Sep 2017 - Aug 2022',
     url: 'https://www.enjoy.com/',
     tagline:
-      'Enjoy is a platform reinventing “Commerce at Home” to bring the best of the store directly to customers. In Internal Tools, I created applications to manage employee performance, revenue, and employee shift schedules. On Platform, I developed features for key partners including Apple, AT&T, Google, and Sonos.',
+      'Enjoy is reinventing “Commerce at Home” to bring the store directly to customers. I created applications to manage employee performance, revenue, and employee shift schedules. I also developed features for key partners including Apple, AT&T, Google, and Sonos.',
     highlights: [
       'Created mobile-first employee performance and compensation applications with React, Apollo, & GraphQL',
       'Built internal scheduling tools to manage 1k+ employees in 50 different markets in US, UK, and CA',
@@ -108,6 +108,21 @@ const data: CompanyInterface[] = [
 const Experience = () => {
   const [selectedIndex, setIndex] = useState<number>(0);
 
+  const downHandler = (e: KeyboardEvent) => {
+    if (e.key === 'ArrowDown') {
+      setIndex((prev) => {
+        return prev === data.length - 1 ? 0 : prev + 1;
+      });
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', downHandler);
+    return () => {
+      window.removeEventListener('keydown', downHandler);
+    };
+  }, []);
+
   const company = data[selectedIndex];
 
   return (
@@ -118,6 +133,7 @@ const Experience = () => {
           <ul className="jobs__tabs">
             {data.map((company, index) => (
               <li
+                key={index}
                 className={classNames('jobs__tab', {
                   'jobs__tab--selected': index === selectedIndex,
                 })}
