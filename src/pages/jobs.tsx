@@ -51,7 +51,7 @@ const data: CompanyInterface[] = [
     period: 'Sep 2017 - Aug 2022',
     url: 'https://www.enjoy.com/',
     tagline:
-      'Enjoy is reinventing “Commerce at Home” to bring the store directly to customers. I created applications to manage employee performance, revenue, and employee shift schedules. I also developed features for key partners including Apple, AT&T, Google, and Sonos.',
+      'Enjoy is reinventing “Commerce at Home” to bring the store directly to customers. I created applications to manage performance, revenue, and shift schedules of over 1000 employees across 40+ markets. I also developed features for key partners including Apple, AT&T, Google, and Sonos.',
     highlights: [
       'Created mobile-first employee performance and compensation applications with React, Apollo, & GraphQL',
       'Built internal scheduling tools to manage 1k+ employees in 50 different markets in US, UK, and CA',

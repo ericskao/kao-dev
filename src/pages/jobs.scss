@@ -49,7 +49,7 @@
   }
 
   &__company-highlights {
-    margin-top: 10px;
+    margin-top: 16px;
     padding-left: 20px;
     li {
       margin: 8px 0;
@@ -71,7 +71,6 @@
 
   &__company-tagline {
     font-size: sizes.$size-small;
-    font-weight: sizes.$font-medium;
     color: colors.$secondary;
   }
 

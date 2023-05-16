@@ -18,7 +18,6 @@ const About = () => {
               className="about__profile-pic"
             />
           </div>
-
           <div className="about__paragraphs">
             <div className="about__title">About Me</div>
             <p>

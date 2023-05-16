@@ -1,0 +1,54 @@
+@use '../styles/abstracts/sizes';
+@use '../styles/abstracts/colors';
+
+.work {
+  &__title {
+    font-weight: sizes.$font-heavy;
+    font-size: sizes.$size-xlarge;
+    color: colors.$secondary;
+    margin-bottom: 36px;
+  }
+
+  &__list {
+    padding: 0 10%;
+  }
+
+  &__item {
+    margin: 36px 0;
+    display: flex;
+    gap: 48px;
+  }
+
+  &__info {
+    padding: 20px;
+    border: 3px solid colors.$secondary;
+    border-radius: 8px;
+
+    a {
+      color: colors.$secondary;
+      font-weight: sizes.$font-heavy;
+      font-size: sizes.$size-medium;
+    }
+  }
+
+  &__picture {
+    height: 300px;
+    border-radius: 10px;
+    min-width: 30%;
+  }
+
+  &__description {
+    margin-top: 12px;
+  }
+
+  &__tech-stack {
+    gap: 12px;
+    display: flex;
+    margin-top: 24px;
+
+    li::before {
+      content: '▹';
+      margin-right: 10px;
+    }
+  }
+}

@@ -1,10 +1,9 @@
-import LinkedIn from '../images/svgs/LinkedIn';
 import { Link } from 'gatsby';
-import { PageLinkType } from './PageLayout';
 import Github from '../images/svgs/Github';
-import logo from '../images/mainLogo.png';
-import './NavBar.scss';
+import LinkedIn from '../images/svgs/LinkedIn';
 import Logo from '../images/svgs/Logo';
+import './NavBar.scss';
+import { PageLinkType } from './PageLayout';
 
 interface NavBarType {
   links: PageLinkType[];
