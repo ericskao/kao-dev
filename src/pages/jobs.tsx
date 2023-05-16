@@ -108,18 +108,22 @@ const data: CompanyInterface[] = [
 const Experience = () => {
   const [selectedIndex, setIndex] = useState<number>(0);
 
-  const downHandler = (e: KeyboardEvent) => {
+  const keyHandler = (e: KeyboardEvent) => {
     if (e.key === 'ArrowDown') {
       setIndex((prev) => {
         return prev === data.length - 1 ? 0 : prev + 1;
+      });
+    } else if (e.key === 'ArrowUp') {
+      setIndex((prev) => {
+        return prev === 0 ? data.length - 1 : prev - 1;
       });
     }
   };
 
   useEffect(() => {
-    window.addEventListener('keydown', downHandler);
+    window.addEventListener('keydown', keyHandler);
     return () => {
-      window.removeEventListener('keydown', downHandler);
+      window.removeEventListener('keydown', keyHandler);
     };
   }, []);
 
