@@ -26,7 +26,6 @@ const PageLayout: React.FC<PageLayoutType> = ({ children, title, pageDescription
     <div className="layout">
       <NavBar links={PAGE_LINKS} />
       <MobileNavBar links={PAGE_LINKS} />
-      <div>stuff</div>
       <div className="layout__content">
         {title && title}
         {children}
