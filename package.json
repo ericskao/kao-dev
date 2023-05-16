@@ -31,7 +31,8 @@
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.5",
     "react-xml-parser": "^1.1.8",
-    "sass": "^1.58.1"
+    "sass": "^1.58.1",
+    "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",

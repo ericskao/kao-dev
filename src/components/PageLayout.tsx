@@ -11,6 +11,7 @@ export interface PageLinkType {
 const PAGE_LINKS: PageLinkType[] = [
   { text: 'About', url: '/about' },
   { text: 'Career', url: '/jobs' },
+  { text: 'Work', url: '/work' },
 ];
 
 export const linkedInLink = 'https://www.linkedin.com/in/erkao/';
