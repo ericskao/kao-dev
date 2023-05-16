@@ -27,13 +27,13 @@ const About = () => {
               <br />I have over 7 years of professional React and TypeScript experience. I've worked
               with teams as{' '}
               <a href="https://proxychat.xyz/" target="_blank">
-                small as 3
+                small as 3,{' '}
               </a>
-              , up to{' '}
+              up to{' '}
               <a href="https://www.enjoy.com/" target="_blank">
-                Series C startups
+                Series C startups,{' '}
               </a>
-              , and{' '}
+              and{' '}
               <a href="https://www.shutterfly.com/" target="_blank">
                 public sized companies.
               </a>
@@ -44,16 +44,15 @@ const About = () => {
               lies in architecting accessible, responsive solutions for the web.
             </p>
             <p>
-              As a consultant, I engineer solutions for clients and business owners. I have
-              experience taking loose requirements and building dynamic user experiences. For static
-              sites, I use latest technologies to optimize fast, SEO driven interfaces.
+              As a consultant, I engineer solutions for clients and business owners. I have can take
+              loose requirements and transform them into dynamic user experiences. For static sites,
+              I use latest technologies to optimize fast, accessible, SEO driven interfaces.
             </p>
             <p>
               In my free time, I enjoy learning new frontend technologies and playing with new
               frameworks. I've spent the last few years building apps for the web3 world and this
-              year I have been tinkering more in the backend in Node.
+              year I have been tinkering with Node in the backend.
             </p>
-            <br />
             <p className="about__link">
               <a href="mailto: ericskao@gmail.com">Let's build together.</a>
             </p>

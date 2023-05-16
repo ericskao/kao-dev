@@ -8,18 +8,65 @@
     color: colors.$secondary;
   }
 
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 10%;
+  }
+
   &__tabs {
     position: relative;
+    margin: 36px 0 0 36px;
+    max-width: 200px;
   }
 
   &__tab {
     border-left: 3px solid colors.$white-secondary;
     padding: 12px 0 12px 20px;
+
+    a {
+      font-size: sizes.$size-medium;
+    }
+  }
+
+  &__company-info {
+    min-height: 300px;
+    width: 50%;
+  }
+
+  &__company-highlights {
+    margin-top: 10px;
+    padding-left: 20px;
+    li {
+      margin: 8px 0;
+      font-size: sizes.$size-smaller;
+      &::before {
+        content: '▹';
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__company-name {
+    font-weight: sizes.$font-regular;
+    a {
+      font-weight: sizes.$font-medium;
+      color: colors.$secondary;
+    }
+  }
+
+  &__company-tagline {
+    font-size: sizes.$size-small;
+    color: colors.$secondary;
+  }
+
+  &__company-period {
+    margin: 8px 0;
   }
 
   .glider {
     position: absolute;
-    height: 45px;
+    height: 61px;
     width: 4px;
     top: 0;
     background-color: colors.$secondary;
