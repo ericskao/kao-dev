@@ -9,12 +9,21 @@
 
   @media (max-width: sizes.$layout-breakpoint-large) {
     display: block;
+
+    p {
+      text-align: center;
+    }
   }
 
   &__title {
     font-weight: sizes.$font-heavy;
     font-size: sizes.$size-xlarge;
     color: colors.$secondary;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      text-align: center;
+      font-size: sizes.$size-medium;
+    }
   }
 
   &__profile-pic {

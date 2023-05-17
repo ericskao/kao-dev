@@ -25,6 +25,10 @@
     gap: 50px;
     justify-content: center;
     position: relative;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      display: block;
+    }
   }
 
   &__info {
@@ -32,6 +36,10 @@
     border-radius: 8px;
     max-width: 500px;
     align-self: center;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      padding: 12px 0 0 0;
+    }
 
     a {
       color: colors.$secondary;
@@ -62,6 +70,10 @@
     li::before {
       content: '▹';
       margin-right: 10px;
+    }
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      display: block;
     }
   }
 }

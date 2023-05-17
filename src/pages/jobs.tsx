@@ -3,6 +3,7 @@ import { HeadFC } from 'gatsby';
 import { useEffect, useState } from 'react';
 import PageLayout from '../components/PageLayout';
 
+import FadeInSection from '../components/FadeInSection';
 import './jobs.scss';
 
 interface CompanyInterface {
@@ -19,7 +20,7 @@ const data: CompanyInterface[] = [
   {
     tabName: 'KaoDev',
     position: 'Founder',
-    name: 'Kao Dev',
+    name: 'KaoDev',
     period: 'March 2023 - Present',
     url: 'https:/ericskao.com/',
     tagline: 'I engineer solutions for business owners and growing companies.',
@@ -129,6 +130,28 @@ const Experience = () => {
 
   const company = data[selectedIndex];
 
+  const renderCompany = (company: CompanyInterface, key?: number) => {
+    return (
+      <div className="jobs__company-info" key={key}>
+        <h2 className="jobs__company-name">
+          {company.position}{' '}
+          <a href={company.url} target="_blank">
+            @ {company.name}
+          </a>
+        </h2>
+        <div className="jobs__company-period">{company.period}</div>
+        {company.tagline && <div className="jobs__company-tagline">{company.tagline}</div>}
+        <ul className="jobs__company-highlights">
+          {company.highlights?.map((highlight, index) => (
+            <li className="jobs__company-highlight" key={index}>
+              {highlight}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
+
   return (
     <PageLayout>
       <section className="jobs">
@@ -150,23 +173,12 @@ const Experience = () => {
             ))}
             <div style={{ transform: `translateY(${selectedIndex * 100}%)` }} className="glider" />
           </ul>
-          <div className="jobs__company-info">
-            <h2 className="jobs__company-name">
-              {company.position}{' '}
-              <a href={company.url} target="_blank">
-                @ {company.name}
-              </a>
-            </h2>
-            <div className="jobs__company-period">{company.period}</div>
-            {company.tagline && <div className="jobs__company-tagline">{company.tagline}</div>}
-            <ul className="jobs__company-highlights">
-              {company.highlights?.map((highlight, index) => (
-                <li className="jobs__company-highlight" key={index}>
-                  {highlight}
-                </li>
-              ))}
-            </ul>
-          </div>
+          {renderCompany(company)}
+        </div>
+        <div className="jobs__all-companies">
+          {data.map((company, index) => {
+            return <FadeInSection>{renderCompany(company, index)}</FadeInSection>;
+          })}
         </div>
       </section>
     </PageLayout>

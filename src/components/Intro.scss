@@ -10,11 +10,18 @@
   h2 {
     font-size: clamp(30px, 6vw, 64px);
     color: colors.$secondary;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      min-height: 80px;
+    }
   }
 
   p {
     width: 600px;
     font-size: sizes.$size-medium;
-    // line-height:
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      width: auto;
+    }
   }
 }

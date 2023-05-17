@@ -12,6 +12,9 @@
     display: flex;
     align-items: center;
     gap: 10%;
+    @media (max-width: sizes.$layout-breakpoint-large) {
+      display: none;
+    }
   }
 
   &__tabs {
@@ -46,6 +49,9 @@
 
   &__company-info {
     width: 50%;
+    @media (max-width: sizes.$layout-breakpoint-large) {
+      width: 100%;
+    }
   }
 
   &__company-highlights {
@@ -76,6 +82,18 @@
 
   &__company-period {
     margin: 8px 0;
+  }
+
+  &__all-companies {
+    display: none;
+    @media (max-width: sizes.$layout-breakpoint-large) {
+      display: block;
+      margin: 24px 0;
+    }
+
+    .jobs__company-info {
+      margin-bottom: 70px;
+    }
   }
 
   .glider {
