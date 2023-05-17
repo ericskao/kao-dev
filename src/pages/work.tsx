@@ -37,7 +37,7 @@ const workData: WorkInterface[] = [
   {
     name: 'Proxychat',
     description:
-      'Proxy allows your community to discuss ideas and proposals on the same platform. Decentralize your decision making. Encourage community stewardship.',
+      'Proxy allows your community to discuss ideas and proposals on the same platform. Decentralize your decision making. I was in charge of architecting the client side and developing core UI features.',
     stack: ['NextJS', 'Go', 'Redux', 'Tailwind', 'Emotion', 'Firebase'],
     url: 'https://proxychat.xyz/',
     images: [proxy1],
@@ -46,7 +46,7 @@ const workData: WorkInterface[] = [
   {
     name: 'Enjoy',
     description:
-      'Some applications I created at Enjoy included: Shift Bidding and Schedules for Employees, Employee Performance and Rewards, and Gamification and Goal Setting Initiatives',
+      'Some applications I created at Enjoy included: Shift Bidding for Employees, Employee Performance and Rewards, and Goal Setting Gamification. Used across US, UK, Canada across over 75 inventory locations.',
     stack: ['React', 'Gatsby', 'Tailwind', 'GraphQL', 'Bulma'],
     images: [enjoy1],
     // images: [enjoy1, enjoy2, enjoy3],
@@ -55,8 +55,8 @@ const workData: WorkInterface[] = [
   {
     name: 'Theory Ventures',
     description:
-      'Theory Ventures is an emerging Venture Capitalist firm that focuses on early stage software companies that leverage technology discontinuities into go-to-market advantages. I created their portfolio site.',
-    stack: ['Gatsby', 'Sass', 'React'],
+      'Theory Ventures is an emerging Venture Capitalist firm that focuses on early stage software companies that leverage technology discontinuities into go-to-market advantages. Portfolio site developed with speed and SEO in mind',
+    stack: ['Gatsby', 'Sass', 'React', 'SEO', 'Open Graph Tags'],
     url: 'https://theory.ventures/',
     images: [venture1],
     // images: [venture1, venture2, venture3, venture4],
@@ -80,7 +80,7 @@ const workData: WorkInterface[] = [
   {
     name: 'Mango Mart',
     description: 'E-commerce platform for selling mechanical keyboards',
-    stack: ['React', 'Node', 'Bulma'],
+    stack: ['React', 'Node', 'Bulma', 'Sass'],
     images: [mango1],
     // images: [mango1, mango2, mango3],
   },
@@ -94,23 +94,25 @@ const Work = () => {
           <div className="work__title">My Work</div>
           <ul className="work__list">
             {workData.map((work, index) => (
-              <li className="work__item" key={index}>
-                {work.images && work.images.length > 0 && (
-                  <a href={work.url} target="_blank">
-                    <img className="work__picture" src={work.images[0]} />
-                  </a>
-                )}
-                <div className="work__info">
-                  <a href={work.url || '#'} target="_blank">
-                    {work.name}
-                  </a>
-                  <div className="work__description">{work.description}</div>
-                  <ul className="work__tech-stack">
-                    {work.stack.map((tech) => (
-                      <li key={tech}>{tech}</li>
-                    ))}
-                  </ul>
-                </div>
+              <li key={index}>
+                <FadeInSection className="work__item">
+                  {work.images && work.images.length > 0 && (
+                    <a href={work.url} target="_blank">
+                      <img className="work__picture" src={work.images[0]} />
+                    </a>
+                  )}
+                  <div className="work__info">
+                    <a href={work.url || '#'} target="_blank">
+                      {work.name}
+                    </a>
+                    <div className="work__description">{work.description}</div>
+                    <ul className="work__tech-stack">
+                      {work.stack.map((tech) => (
+                        <li key={tech}>{tech}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </FadeInSection>
               </li>
             ))}
           </ul>

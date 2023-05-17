@@ -1,8 +1,15 @@
+import classnames from 'classnames';
 import { useEffect, useRef, useState } from 'react';
 
 import './FadeInSection.scss';
 
-const FadeInSection = ({ children }: { children: React.ReactNode }) => {
+const FadeInSection = ({
+  children,
+  className = '',
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
   const [isVisible, setVisible] = useState<boolean>(false);
   const domRef = useRef<any>();
 
@@ -19,7 +26,13 @@ const FadeInSection = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   return (
-    <div className={`fade-in-section ${isVisible ? 'is-visible' : ''}`} ref={domRef}>
+    <div
+      className={classnames('fade-in-section', {
+        'is-visible': isVisible,
+        [className]: !!className,
+      })}
+      ref={domRef}
+    >
       {children}
     </div>
   );
