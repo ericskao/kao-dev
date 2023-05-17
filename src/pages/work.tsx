@@ -23,7 +23,7 @@ import venture1 from '../images/portfolio/ventures1.png';
 // import venture3 from '../images/portfolio/ventures3.png';
 // import venture4 from '../images/portfolio/ventures4.png';
 
-import './Work.scss';
+import './work.scss';
 
 interface WorkInterface {
   name: string;
