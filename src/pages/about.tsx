@@ -12,7 +12,7 @@ const About = () => {
         <div className="about__profile-pic-container">
           <StaticImage
             src="../images/headshot.jpeg"
-            alt="Eric Kao"
+            alt="Headshot"
             placeholder="blurred"
             className="about__profile-pic"
           />
@@ -21,44 +21,34 @@ const About = () => {
           <div className="about__title">About Me</div>
           <FadeInSection>
             <p>
-              My name is Eric Kao. I’m a frontend software engineer & freelance web developer in the
-              Bay Area. I have over 7 years of professional React and TypeScript experience. I've
-              worked with teams as{' '}
-              <a href="https://proxychat.xyz/" target="_blank">
-                small as 3,{' '}
-              </a>
-              up to{' '}
-              <a href="https://www.enjoy.com/" target="_blank">
-                Series C startups,{' '}
-              </a>
-              and{' '}
-              <a href="https://www.shutterfly.com/" target="_blank">
-                public sized companies.
-              </a>
+              I am Eric Kao, a software engineer and freelance web developer based in the Bay Area
+              with over nine years of professional experience in React, Node, and TypeScript. I have
+              collaborated with teams ranging from a handful of developers to large, publicly traded
+              companies. My experience spans various industries, including web3 & crypto,
+              e-commerce, social media, and ed-tech.
             </p>
           </FadeInSection>
           <FadeInSection>
             <p>
-              As a software engineer, I enjoy working with cross-functional teams, where I get to
-              bridge the gap between design, product management, and business needs. My specialty
-              lies in architecting accessible, responsive solutions for the web.
+              I excel in bridging the gap between design, product management, and business needs. My
+              specialty lies in architecting accessible and responsive web solutions.
             </p>
           </FadeInSection>
           <FadeInSection>
             <p>
-              I build solutions for clients and business owners. I transform loose requirements into
-              dynamic user experiences. For static sites, I use modern technologies to develop fast,
-              accessible, SEO driven interfaces.
+              I build solutions for clients and business owners, transforming loose requirements
+              into dynamic user experiences. For static sites, I leverage modern technologies to
+              develop fast, accessible, and SEO-driven interfaces.
             </p>
           </FadeInSection>
           <FadeInSection>
             <p>
-              In my free time, I enjoy learning new frontend technologies and playing with new
-              frameworks. I've spent the last few years building apps for the web3 world and this
-              year I have been tinkering with Node in the backend.
+              In my free time, I enjoy learning new full-stack technologies and exploring new
+              frameworks and trends. While I have spent the last few years working in web3, I have
+              recently been experimenting more with AI.
             </p>
             <p className="about__link">
-              <a href="mailto: ericskao@gmail.com">Let's build together.</a>
+              <a href="mailto:ericskao@gmail.com">Let&apos;s build something great together.</a>
             </p>
           </FadeInSection>
         </div>

@@ -25,9 +25,39 @@ const data: CompanyInterface[] = [
     url: 'https:/ericskao.com/',
     tagline: 'I engineer solutions for business owners and growing companies.',
     highlights: [
-      'Work with emerging VC firm in the Bay Area on portfolio site and to expand their online presence',
-      'Develop Demo and Tutorial experience for a16z backed startup, including the checkout experience for cart',
-      'Content creation including problem creation, solutions, and test cases for engineering learning platform',
+      'Work with emerging VC firm Theory Ventures in the Bay Area on portfolio site and to expand their online presence',
+      'Develop Demo and Tutorial experience for a16z backed startup Rye, including the checkout experience for cart',
+      'Content creation including problem creation, solutions, and test cases for engineering learning platform GreatFrontEnd',
+      'Create scheduling and reservation system for Wilson Park Ceramics',
+    ],
+  },
+  {
+    tabName: 'MagicEden',
+    position: 'Senior Software Engineer',
+    name: 'Magic Eden',
+    period: 'June 2023 - Dec 2023',
+    url: 'https://magiceden.io/',
+    tagline:
+      'Magic Eden is the premier NFT marketplace and self-custody crypto wallet for users to discover, trade, and create NFTs across multiple blockchains.',
+    highlights: [
+      'Maintained, developed, and deprecated components in UI library as part of the UI Infrastucture team',
+      'Redesigned core Solana Marketplace and Profile pages, and MagicEden Bitcoin to enhance UX and interface consistency',
+      'Developed new MagicEden homepage as part of company rebrand and redesign using NextJS and Zustand',
+    ],
+  },
+  {
+    tabName: 'Notion',
+    position: 'Web Developer, Contract',
+    name: 'Notion',
+    period: 'May 2023 - Oct 2023',
+    url: 'https://www.notion.so/',
+    tagline:
+      'Notion is a note-taking and collaboration application for tasks, wikis, and databases.',
+    highlights: [
+      'Designed A/B testing experiments for most trafficked pages including Notion.so and Notion AI',
+      'Conducted Statsig experiments to optimize metrics conversion and bounce rates across all locales',
+      'Collaborated with designer to build multiple versions of UI variants to optimize landing pages',
+      'Create workflow for designers, project managers, engineers, and QA to follow for proper A/B testing from ideation, design review, development, QA, and to production',
     ],
   },
   {
@@ -52,7 +82,7 @@ const data: CompanyInterface[] = [
     period: 'Sep 2017 - Aug 2022',
     url: 'https://www.enjoy.com/',
     tagline:
-      'Enjoy is reinventing “Commerce at Home” to bring the store directly to customers. I created applications to manage performance, revenue, and shift schedules of over 1000 employees across 40+ markets. I also developed features for key partners including Apple, AT&T, Google, and Sonos.',
+      'Enjoy is reinventing “Commerce at Home” to bring the store directly to customers. I created applications to manage performance, revenue, and shift schedules of over 1000 employees across 40+ markets.',
     highlights: [
       'Created mobile-first employee performance and compensation applications with React, Apollo, & GraphQL',
       'Built internal scheduling tools to manage 1k+ employees in 50 different markets in US, UK, and CA',
@@ -67,7 +97,7 @@ const data: CompanyInterface[] = [
     period: 'Sep 2021 - Dec 2021',
     url: 'https://irrelevants.com/',
     tagline:
-      'Artificial Irrelevants is a collection of 4848 Robot NFTs built on the Solana blockchain. As a cofounder,I built the interface allowing users to connect their wallet to mint NFTs, and used data science to calculate the Rarity Tool- allowing users to determine the rarity of their NFT.',
+      'Artificial Irrelevants is a collection of 4848 Robot NFTs built on the Solana blockchain. I built the interface to allow users to connect their wallet to mint NFTs and the Rarity Tool.',
     highlights: [
       'Launched NFT platform (b2c) on the Solana blockchain, raising $750k+ profit in 1 month',
       'Built client interface to connect user wallets for mint and purchase of NFTs w/ Web3 smart contracts',
@@ -187,4 +217,4 @@ const Experience = () => {
 
 export default Experience;
 
-export const Head: HeadFC = () => <title>Eric Kao- Career</title>;
+export const Head: HeadFC = () => <title>Eric Kao - Career</title>;

@@ -4,24 +4,11 @@ import PageLayout from '../components/PageLayout';
 
 // assets
 import ai2 from '../images/portfolio/ai2.gif';
-// import ai3 from '../images/portfolio/ai3.png';
 import enjoy1 from '../images/portfolio/enjoy1.gif';
-// import enjoy2 from '../images/portfolio/enjoy2.gif';
-// import enjoy3 from '../images/portfolio/enjoy3.gif';
 import mango1 from '../images/portfolio/mango1.png';
-// import mango2 from '../images/portfolio/mango2.png';
-// import mango3 from '../images/portfolio/mango3.png';
 import proxy1 from '../images/portfolio/proxy1.png';
-// import proxy2 from '../images/portfolio/proxy2.png';
-// import proxy3 from '../images/portfolio/proxy3.png';
-// import proxy4 from '../images/portfolio/proxy4.png';
-// import proxy5 from '../images/portfolio/proxy5.png';
-// import proxy6 from '../images/portfolio/proxy6.png';
 import rye1 from '../images/portfolio/rye1.gif';
 import venture1 from '../images/portfolio/ventures1.png';
-// import venture2 from '../images/portfolio/ventures2.png';
-// import venture3 from '../images/portfolio/ventures3.png';
-// import venture4 from '../images/portfolio/ventures4.png';
 
 import './work.scss';
 
