@@ -6,6 +6,7 @@ import PageLayout from '../components/PageLayout';
 import ai2 from '../images/portfolio/ai2.gif';
 import enjoy1 from '../images/portfolio/enjoy1.gif';
 import mango1 from '../images/portfolio/mango1.png';
+import notion from '../images/portfolio/notion.png';
 import proxy1 from '../images/portfolio/proxy1.png';
 import rye1 from '../images/portfolio/rye1.gif';
 import venture1 from '../images/portfolio/ventures1.png';
@@ -22,13 +23,20 @@ interface WorkInterface {
 
 const workData: WorkInterface[] = [
   {
+    name: 'Notion',
+    description:
+      'Notion is a note-taking and collaboration application for tasks, wikis, and databases. I worked on the Marketing Engineering team to set up A/B tests and experiments for the highest trafficked pages including Notion.so and Notion AI.',
+    stack: ['NextJS'],
+    url: 'https://www.notion.so/',
+    images: [notion],
+  },
+  {
     name: 'Proxychat',
     description:
       'Proxy allows your community to discuss ideas and proposals on the same platform. Decentralize your decision making. I was in charge of architecting the client side and developing core UI features.',
     stack: ['NextJS', 'Go', 'Redux', 'Tailwind', 'Emotion', 'Firebase'],
     url: 'https://proxychat.xyz/',
     images: [proxy1],
-    // images: [proxy1, proxy2, proxy3, proxy4, proxy5, proxy6],
   },
   {
     name: 'Enjoy',
@@ -36,8 +44,7 @@ const workData: WorkInterface[] = [
       'Some applications I created at Enjoy included: Shift Bidding for Employees, Employee Performance and Rewards, and Goal Setting Gamification. Used across US, UK, Canada across over 75 inventory locations.',
     stack: ['React', 'Gatsby', 'Tailwind', 'GraphQL', 'Bulma'],
     images: [enjoy1],
-    // images: [enjoy1, enjoy2, enjoy3],
-    url: 'https://www.enjoy.com',
+    url: 'https://www.linkedin.com/company/enjoy-inc-/',
   },
   {
     name: 'Theory Ventures',
@@ -46,7 +53,6 @@ const workData: WorkInterface[] = [
     stack: ['Gatsby', 'Sass', 'React', 'SEO', 'Open Graph Tags'],
     url: 'https://theory.ventures/',
     images: [venture1],
-    // images: [venture1, venture2, venture3, venture4],
   },
   {
     name: 'Rye',
@@ -54,6 +60,7 @@ const workData: WorkInterface[] = [
       'Rye builds developer tools and APIs to build the next generation of eCommerce experiences. I created their Demo and Walkthrough experience and the checkout & cart views.',
     stack: ['Remix', 'Tailwind'],
     images: [rye1],
+    url: 'https://rye.com/#demo',
   },
   {
     name: 'Artificial Irrelevants',
@@ -62,14 +69,12 @@ const workData: WorkInterface[] = [
     stack: ['React', 'Bulma', 'Node'],
     url: 'https://irrelevants.com/',
     images: [ai2],
-    // images: [ai2, ai1, ai3],
   },
   {
     name: 'Mango Mart',
     description: 'E-commerce platform for selling mechanical keyboards',
     stack: ['React', 'Node', 'Bulma', 'Sass'],
     images: [mango1],
-    // images: [mango1, mango2, mango3],
   },
 ];
 

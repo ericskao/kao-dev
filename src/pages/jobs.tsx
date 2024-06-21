@@ -80,7 +80,7 @@ const data: CompanyInterface[] = [
     position: 'Senior Software Engineer',
     name: 'Enjoy',
     period: 'Sep 2017 - Aug 2022',
-    url: 'https://www.enjoy.com/',
+    url: 'https://www.linkedin.com/company/enjoy-inc-/',
     tagline:
       'Enjoy is reinventing “Commerce at Home” to bring the store directly to customers. I created applications to manage performance, revenue, and shift schedules of over 1000 employees across 40+ markets.',
     highlights: [
