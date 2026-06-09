@@ -21,31 +21,34 @@ const About = () => {
           <div className="about__title">About Me</div>
           <FadeInSection>
             <p>
-              I am Eric Kao, a software engineer and freelance web developer based in the Bay Area
-              with over nine years of professional experience in React, Node, and TypeScript. I have
-              collaborated with teams ranging from a handful of developers to large, publicly traded
-              companies. My experience spans various industries, including web3 & crypto,
-              e-commerce, social media, and ed-tech.
+              I am Eric Kao, an agentic AI engineer and full-stack software engineer based in the
+              Bay Area with over nine years of professional experience. At HomeLight, I design and
+              implement LangChain workflows and AI agents that automate complex real estate
+              transaction processes — reducing hours of manual work across closings, mortgages, and
+              operations.
             </p>
           </FadeInSection>
           <FadeInSection>
             <p>
-              I excel in bridging the gap between design, product management, and business needs. My
-              specialty lies in architecting accessible and responsive web solutions.
+              My background spans agentic AI, backend automation, and full-stack development across
+              React, Ruby on Rails, Node, and TypeScript. I bridge the gap between product,
+              engineering, and business needs — whether that means architecting multi-step AI
+              pipelines, building webhook-driven services, or shipping consumer-facing applications.
             </p>
           </FadeInSection>
           <FadeInSection>
             <p>
-              I build solutions for clients and business owners, transforming loose requirements
-              into dynamic user experiences. For static sites, I leverage modern technologies to
-              develop fast, accessible, and SEO-driven interfaces.
+              Through KaoDev, I also build AI-powered and web solutions for clients and business
+              owners, transforming loose requirements into production-ready systems. I&apos;ve
+              collaborated with teams ranging from early-stage startups to large, publicly traded
+              companies across real estate, web3, e-commerce, and ed-tech.
             </p>
           </FadeInSection>
           <FadeInSection>
             <p>
-              In my free time, I enjoy learning new full-stack technologies and exploring new
-              frameworks and trends. While I have spent the last few years working in web3, I have
-              recently been experimenting more with AI.
+              I&apos;m passionate about pushing the boundaries of what AI agents can automate in
+              real-world workflows — and I&apos;m always exploring new frameworks, tools, and
+              approaches to make that happen.
             </p>
             <p className="about__link">
               <a href="mailto:ericskao@gmail.com">Let&apos;s build something great together.</a>
@@ -59,4 +62,4 @@ const About = () => {
 
 export default About;
 
-export const Head: HeadFC = () => <title>Eric Kao - About</title>;
+export const Head: HeadFC = () => <title>Eric Kao — About</title>;

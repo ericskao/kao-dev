@@ -18,12 +18,32 @@ interface CompanyInterface {
 
 const data: CompanyInterface[] = [
   {
+    tabName: 'HomeLight',
+    position: 'Agentic AI Engineer',
+    name: 'HomeLight',
+    period: 'Oct 2024 - Present',
+    url: 'https://www.homelight.com/',
+    tagline:
+      'HomeLight is a real estate technology platform. I build agentic AI workflows and full-stack systems that automate complex transaction processes across closings, mortgages, and consumer experiences.',
+    highlights: [
+      'Designed and implemented LangChain workflows to automate complex, multi-step processes, reducing hours of manual work across multiple teams',
+      'Building EVA, an AI agent that automates real estate closings',
+      'Architected automation pipelines that reduced ops & marketing workflows from hours to seconds',
+      'Designed webhook-based services connecting MeridianLink transactions to automated county records',
+      'Developed Jootie, enabling bulk updates across dozens of order fields in seconds for finance operations',
+      'Technical owner of v0, leading onboarding and enablement for engineers and non-engineers to build and deploy full-stack applications',
+      'Led full-stack projects (Ruby on Rails, React) from PRD ideation to connect quiz leads with top agents via A/B testing',
+      'Built services and integrations for the Buy Before You Sell (BBYS) program, enabling clients to purchase their next home before selling their current one',
+      'Led front-end and design guild in standardizing design components and style guides',
+    ],
+  },
+  {
     tabName: 'KaoDev',
     position: 'Founder',
     name: 'KaoDev',
     period: 'March 2023 - Present',
     url: 'https:/ericskao.com/',
-    tagline: 'I engineer solutions for business owners and growing companies.',
+    tagline: 'I engineer AI-powered solutions and web applications for business owners and growing companies.',
     highlights: [
       'Work with emerging VC firm Theory Ventures in the Bay Area on portfolio site and to expand their online presence',
       'Develop Demo and Tutorial experience for a16z backed startup Rye, including the checkout experience for cart',

@@ -9,15 +9,19 @@ const Intro = () => {
       <h2>
         <Typewriter
           options={{
-            strings: ['Web developer, software engineer.'],
+            strings: [
+              'Agentic AI engineer.',
+              'AI workflow architect.',
+              'Full-stack software engineer.',
+            ],
             autoStart: true,
             loop: true,
           }}
         />
       </h2>
       <p>
-        I’m a software engineer specializing in building user interfaces and digital web experiences
-        on mobile and desktop.
+        I design and ship agentic AI systems that automate complex, multi-step workflows — from
+        LangChain pipelines to full-stack products — turning hours of manual work into seconds.
       </p>
     </main>
   );

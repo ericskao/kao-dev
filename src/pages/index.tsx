@@ -17,4 +17,6 @@ const Home: React.FC<PageProps> = () => {
 
 export default Home;
 
-export const Head: HeadFC = () => <title>Eric Kao, Software Engineer</title>;
+export const Head: HeadFC = () => (
+  <title>Eric Kao — Agentic AI Engineer</title>
+);

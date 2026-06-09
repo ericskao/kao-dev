@@ -4,7 +4,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: `Eric Kao`,
     siteUrl: `https://www.ericskao.com`,
-    description: `Eric Kao Software Engineer.`,
+    description: `Eric Kao — Agentic AI Engineer & Full-Stack Software Engineer.`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin

@@ -23,6 +23,13 @@ interface WorkInterface {
 
 const workData: WorkInterface[] = [
   {
+    name: 'HomeLight EVA',
+    description:
+      'EVA is HomeLight\'s AI agent that automates real estate closings. I design and implement LangChain workflows that handle complex, multi-step transaction processes — alongside backend automation pipelines, webhook integrations, and full-stack tooling that support the platform.',
+    stack: ['LangChain', 'Python', 'Ruby on Rails', 'React', 'v0'],
+    url: 'https://www.homelight.com/',
+  },
+  {
     name: 'Notion',
     description:
       'Notion is a note-taking and collaboration application for tasks, wikis, and databases. I worked on the Marketing Engineering team to set up A/B tests and experiments for the highest trafficked pages including Notion.so and Notion AI.',
