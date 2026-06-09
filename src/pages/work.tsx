@@ -10,6 +10,7 @@ import notion from '../images/portfolio/notion.png';
 import proxy1 from '../images/portfolio/proxy1.png';
 import rye1 from '../images/portfolio/rye1.gif';
 import venture1 from '../images/portfolio/ventures1.png';
+import homelight1 from '../images/portfolio/homelight1.png';
 
 import './work.scss';
 
@@ -25,9 +26,10 @@ const workData: WorkInterface[] = [
   {
     name: 'HomeLight EVA',
     description:
-      'EVA is HomeLight\'s AI agent that automates real estate closings. I design and implement LangChain workflows that handle complex, multi-step transaction processes — alongside backend automation pipelines, webhook integrations, and full-stack tooling that support the platform.',
+      "EVA is HomeLight's AI agent that automates real estate closings. I design and implement LangChain workflows that handle complex, multi-step transaction processes — alongside backend automation pipelines, webhook integrations, and full-stack tooling that support the platform.",
     stack: ['LangChain', 'Python', 'Ruby on Rails', 'React', 'v0'],
     url: 'https://www.homelight.com/',
+    images: [homelight1],
   },
   {
     name: 'Notion',
