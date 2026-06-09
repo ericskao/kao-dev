@@ -25,9 +25,9 @@ interface WorkInterface {
 
 const workData: WorkInterface[] = [
   {
-    name: 'HomeLight EVA',
+    name: 'HomeLight',
     description:
-      "EVA is HomeLight's AI agent that automates real estate closings. I design and implement LangChain workflows that handle complex, multi-step transaction processes — alongside backend automation pipelines, webhook integrations, and full-stack tooling that support the platform.",
+      'HomeLight is a real estate technology platform. I build agentic AI workflows and full-stack systems that automate complex transaction processes across closings, mortgages, and consumer experiences.',
     stack: ['LangChain', 'Python', 'Ruby on Rails', 'React', 'v0'],
     url: 'https://www.homelight.com/',
     images: [homelight1],
