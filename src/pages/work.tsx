@@ -11,7 +11,7 @@ import proxy1 from '../images/portfolio/proxy1.png';
 import rye1 from '../images/portfolio/rye1.gif';
 import venture1 from '../images/portfolio/ventures1.png';
 import magiceden1 from '../images/portfolio/magiceden1.png';
-import homelight1 from '../images/portfolio/homelight1.png';
+import homelight1 from '../images/portfolio/homelight.png';
 
 import './work.scss';
 
