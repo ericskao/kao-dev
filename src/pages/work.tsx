@@ -10,6 +10,7 @@ import notion from '../images/portfolio/notion.png';
 import proxy1 from '../images/portfolio/proxy1.png';
 import rye1 from '../images/portfolio/rye1.gif';
 import venture1 from '../images/portfolio/ventures1.png';
+import magiceden1 from '../images/portfolio/magiceden1.png';
 import homelight1 from '../images/portfolio/homelight1.png';
 
 import './work.scss';
@@ -30,6 +31,14 @@ const workData: WorkInterface[] = [
     stack: ['LangChain', 'Python', 'Ruby on Rails', 'React', 'v0'],
     url: 'https://www.homelight.com/',
     images: [homelight1],
+  },
+  {
+    name: 'MagicEden',
+    description:
+      'MagicEden is the premier NFT marketplace and self-custody crypto wallet for users to discover, trade, and create NFTs across multiple blockchains. I worked on the UI Infrastructure team to maintain, develop, and deprecate components in the UI Library.',
+    stack: ['NextJS', 'Zustand', 'Tailwind', 'React', 'TypeScript'],
+    url: 'https://www.magiceden.us/',
+    images: [magiceden1],
   },
   {
     name: 'Notion',
