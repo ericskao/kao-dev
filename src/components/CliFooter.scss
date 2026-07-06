@@ -1,0 +1,112 @@
+@use '../styles/abstracts/colors';
+@use '../styles/abstracts/sizes';
+@use '../styles/abstracts/effects';
+
+.cli {
+  @include effects.panel;
+  margin-top: 100px;
+  cursor: text;
+  font-size: 13px;
+  overflow: hidden;
+
+  &__chrome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid colors.$border;
+
+    &-title {
+      font-size: 11px;
+      color: colors.$faint;
+      letter-spacing: 0.1em;
+    }
+
+    &-status {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: colors.$neon-green;
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+  }
+
+  &__body {
+    padding: 16px;
+    max-height: 220px;
+    overflow-y: auto;
+    line-height: 1.9;
+  }
+
+  &__line {
+    color: colors.$muted;
+    white-space: pre-wrap;
+
+    &--cmd {
+      color: colors.$primary;
+    }
+  }
+
+  &__prompt {
+    color: colors.$neon-green;
+    margin-right: 8px;
+    user-select: none;
+  }
+
+  &__input-row {
+    display: flex;
+    align-items: center;
+  }
+
+  &__input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: colors.$primary;
+    font: inherit;
+    caret-color: colors.$neon-green;
+
+    &::placeholder {
+      color: colors.$faint;
+    }
+  }
+
+  &__shortcuts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 16px;
+    border-top: 1px dashed colors.$border-bright;
+  }
+
+  &__shortcut {
+    background: transparent;
+    border: 1px solid colors.$border-bright;
+    border-radius: 4px;
+    color: colors.$muted;
+    font: inherit;
+    font-size: 12px;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: color 200ms, border-color 200ms, box-shadow 200ms;
+
+    &:hover {
+      color: colors.$secondary;
+      border-color: colors.$secondary;
+      box-shadow: 0 0 12px colors.$glow-cyan;
+    }
+
+    &--muted {
+      border-style: dashed;
+      color: colors.$faint;
+      font-size: 11px;
+
+      &:hover {
+        color: colors.$muted;
+        border-color: colors.$border-bright;
+        box-shadow: none;
+      }
+    }
+  }
+}

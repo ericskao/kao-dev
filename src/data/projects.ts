@@ -1,0 +1,585 @@
+import { Architecture } from '../components/ArchDiagram';
+
+// assets
+import ai2 from '../images/portfolio/ai2.gif';
+import enjoy1 from '../images/portfolio/enjoy1.gif';
+import homelight1 from '../images/portfolio/homelight.png';
+import magiceden1 from '../images/portfolio/magiceden1.png';
+import mango1 from '../images/portfolio/mango1.png';
+import notion from '../images/portfolio/notion.png';
+import proxy1 from '../images/portfolio/proxy1.png';
+import rye1 from '../images/portfolio/rye1.gif';
+import venture1 from '../images/portfolio/ventures1.png';
+
+export interface ProjectInterface {
+  id: string;
+  name: string;
+  description: string;
+  stack: string[];
+  url?: string;
+  image?: string;
+  metric?: string;
+  architecture: Architecture;
+}
+
+export const projects: ProjectInterface[] = [
+  {
+    id: 'homelight',
+    name: 'HomeLight',
+    description:
+      'HomeLight is a real estate technology platform. I build agentic AI workflows and full-stack systems that automate complex transaction processes across closings, mortgages, and consumer experiences.',
+    stack: ['LangChain', 'Python', 'Ruby on Rails', 'React', 'v0'],
+    url: 'https://www.homelight.com/',
+    image: homelight1,
+    metric: 'hours of manual work → seconds',
+    architecture: {
+      nodes: [
+        {
+          id: 'console',
+          label: 'Ops Console',
+          sublabel: 'React',
+          detail: 'Internal console where ops teams trigger and monitor automated workflows.',
+          x: 12,
+          y: 25,
+          type: 'ui',
+        },
+        {
+          id: 'rails',
+          label: 'Rails Core',
+          sublabel: 'Ruby on Rails',
+          detail: 'Core transaction platform emitting events into the agentic layer.',
+          x: 12,
+          y: 75,
+          type: 'service',
+        },
+        {
+          id: 'eva',
+          label: 'EVA Agent',
+          sublabel: 'LangChain',
+          detail:
+            'Agentic loop that plans, invokes tools, and validates multi-step closing workflows.',
+          x: 40,
+          y: 50,
+          type: 'agent',
+        },
+        {
+          id: 'pipeline',
+          label: 'Automation Pipeline',
+          sublabel: 'webhooks',
+          detail: 'Webhook-based services connecting transactions to downstream systems.',
+          x: 66,
+          y: 25,
+          type: 'service',
+        },
+        {
+          id: 'meridian',
+          label: 'MeridianLink',
+          detail: 'Mortgage transaction system integrated via webhook services.',
+          x: 89,
+          y: 25,
+          type: 'external',
+        },
+        {
+          id: 'county',
+          label: 'County Records',
+          detail: 'Automated county record lookups and filings.',
+          x: 89,
+          y: 62,
+          type: 'data',
+        },
+        {
+          id: 'db',
+          label: 'Postgres',
+          sublabel: 'orders / fields',
+          detail: 'Jootie performs bulk updates across dozens of order fields in seconds.',
+          x: 66,
+          y: 80,
+          type: 'data',
+        },
+      ],
+      edges: [
+        { from: 'console', to: 'eva', label: 'trigger' },
+        { from: 'rails', to: 'eva', label: 'events' },
+        { from: 'eva', to: 'pipeline', label: 'invoke' },
+        { from: 'pipeline', to: 'meridian' },
+        { from: 'pipeline', to: 'county' },
+        { from: 'eva', to: 'db', label: 'bulk update' },
+      ],
+    },
+  },
+  {
+    id: 'magiceden',
+    name: 'MagicEden',
+    description:
+      'MagicEden is the premier NFT marketplace and self-custody crypto wallet for users to discover, trade, and create NFTs across multiple blockchains. I worked on the UI Infrastructure team to maintain, develop, and deprecate components in the UI Library.',
+    stack: ['NextJS', 'Zustand', 'Tailwind', 'React', 'TypeScript'],
+    url: 'https://www.magiceden.us/',
+    image: magiceden1,
+    metric: 'multi-chain marketplace UI',
+    architecture: {
+      nodes: [
+        {
+          id: 'frontend',
+          label: 'NextJS Frontend',
+          sublabel: 'marketplace',
+          detail: 'Redesigned core Solana Marketplace, Profile pages, and new homepage.',
+          x: 13,
+          y: 50,
+          type: 'ui',
+        },
+        {
+          id: 'uilib',
+          label: 'UI Library',
+          sublabel: 'infra team',
+          detail: 'Shared component library maintained across all marketplace surfaces.',
+          x: 40,
+          y: 22,
+          type: 'service',
+        },
+        {
+          id: 'store',
+          label: 'Zustand Store',
+          detail: 'Client state management for marketplace and wallet flows.',
+          x: 40,
+          y: 78,
+          type: 'service',
+        },
+        {
+          id: 'api',
+          label: 'Marketplace API',
+          detail: 'Listing, trading, and collection data services.',
+          x: 66,
+          y: 50,
+          type: 'service',
+        },
+        {
+          id: 'solana',
+          label: 'Solana',
+          detail: 'Primary chain for the core marketplace.',
+          x: 89,
+          y: 28,
+          type: 'external',
+        },
+        {
+          id: 'bitcoin',
+          label: 'Bitcoin',
+          sublabel: 'ordinals',
+          detail: 'MagicEden Bitcoin marketplace for ordinals.',
+          x: 89,
+          y: 72,
+          type: 'external',
+        },
+      ],
+      edges: [
+        { from: 'frontend', to: 'uilib', label: 'components' },
+        { from: 'frontend', to: 'store' },
+        { from: 'frontend', to: 'api' },
+        { from: 'api', to: 'solana' },
+        { from: 'api', to: 'bitcoin' },
+      ],
+    },
+  },
+  {
+    id: 'notion',
+    name: 'Notion',
+    description:
+      'Notion is a note-taking and collaboration application for tasks, wikis, and databases. I worked on the Marketing Engineering team to set up A/B tests and experiments for the highest trafficked pages including Notion.so and Notion AI.',
+    stack: ['NextJS'],
+    url: 'https://www.notion.so/',
+    image: notion,
+    metric: 'A/B testing at massive scale',
+    architecture: {
+      nodes: [
+        {
+          id: 'pages',
+          label: 'Landing Pages',
+          sublabel: 'notion.so / AI',
+          detail: 'Highest trafficked marketing pages across all locales.',
+          x: 13,
+          y: 50,
+          type: 'ui',
+        },
+        {
+          id: 'variants',
+          label: 'UI Variants',
+          detail: 'Multiple design variants built for each experiment.',
+          x: 40,
+          y: 25,
+          type: 'service',
+        },
+        {
+          id: 'statsig',
+          label: 'Statsig',
+          detail: 'Experimentation platform powering A/B assignments.',
+          x: 40,
+          y: 75,
+          type: 'external',
+        },
+        {
+          id: 'next',
+          label: 'NextJS Marketing',
+          detail: 'Marketing engineering stack serving experiments to production.',
+          x: 66,
+          y: 50,
+          type: 'service',
+        },
+        {
+          id: 'metrics',
+          label: 'Conversion Metrics',
+          detail: 'Bounce rate and conversion optimization measured per locale.',
+          x: 89,
+          y: 50,
+          type: 'data',
+        },
+      ],
+      edges: [
+        { from: 'pages', to: 'variants', label: 'render' },
+        { from: 'pages', to: 'statsig', label: 'assign' },
+        { from: 'variants', to: 'next' },
+        { from: 'statsig', to: 'next' },
+        { from: 'next', to: 'metrics', label: 'measure' },
+      ],
+    },
+  },
+  {
+    id: 'proxychat',
+    name: 'Proxychat',
+    description:
+      'Proxy allows your community to discuss ideas and proposals on the same platform. Decentralize your decision making. I was in charge of architecting the client side and developing core UI features.',
+    stack: ['NextJS', 'Go', 'Redux', 'Tailwind', 'Emotion', 'Firebase'],
+    url: 'https://proxychat.xyz/',
+    image: proxy1,
+    metric: 'social for web3 communities',
+    architecture: {
+      nodes: [
+        {
+          id: 'client',
+          label: 'NextJS Client',
+          detail: 'Client architecture I owned as founding frontend engineer.',
+          x: 13,
+          y: 50,
+          type: 'ui',
+        },
+        {
+          id: 'redux',
+          label: 'Redux Store',
+          detail: 'State for feed, posting flow, and chat features.',
+          x: 40,
+          y: 22,
+          type: 'service',
+        },
+        {
+          id: 'firebase',
+          label: 'Firebase',
+          detail: 'Realtime data and auth.',
+          x: 40,
+          y: 78,
+          type: 'external',
+        },
+        {
+          id: 'go',
+          label: 'Go Backend',
+          detail: 'Core API services.',
+          x: 66,
+          y: 50,
+          type: 'service',
+        },
+        {
+          id: 'governance',
+          label: 'Governance',
+          sublabel: 'DAO tools',
+          detail: 'Voting, upvotes, reactions, threads, and grant submissions.',
+          x: 89,
+          y: 30,
+          type: 'data',
+        },
+        {
+          id: 'feed',
+          label: 'Content Feed',
+          detail: 'Community feed and chat features.',
+          x: 89,
+          y: 72,
+          type: 'service',
+        },
+      ],
+      edges: [
+        { from: 'client', to: 'redux' },
+        { from: 'client', to: 'firebase' },
+        { from: 'client', to: 'go' },
+        { from: 'go', to: 'governance' },
+        { from: 'go', to: 'feed' },
+      ],
+    },
+  },
+  {
+    id: 'enjoy',
+    name: 'Enjoy',
+    description:
+      'Some applications I created at Enjoy included: Shift Bidding for Employees, Employee Performance and Rewards, and Goal Setting Gamification. Used across US, UK, Canada across over 75 inventory locations.',
+    stack: ['React', 'Gatsby', 'Tailwind', 'GraphQL', 'Bulma'],
+    url: 'https://www.linkedin.com/company/enjoy-inc-/',
+    image: enjoy1,
+    metric: '1k+ employees · 50 markets',
+    architecture: {
+      nodes: [
+        {
+          id: 'mobile',
+          label: 'Mobile-first UI',
+          sublabel: 'React',
+          detail: 'Employee-facing performance and compensation applications.',
+          x: 13,
+          y: 50,
+          type: 'ui',
+        },
+        {
+          id: 'apollo',
+          label: 'Apollo GraphQL',
+          detail: 'Data layer for all internal tools.',
+          x: 40,
+          y: 50,
+          type: 'service',
+        },
+        {
+          id: 'scheduling',
+          label: 'Scheduling',
+          sublabel: 'shift bidding',
+          detail: 'Internal scheduling tools managing 1k+ employees.',
+          x: 66,
+          y: 22,
+          type: 'service',
+        },
+        {
+          id: 'rewards',
+          label: 'Gamification',
+          sublabel: 'rewards',
+          detail: 'Reward initiatives improving key performance 20%+ across quarters.',
+          x: 66,
+          y: 78,
+          type: 'service',
+        },
+        {
+          id: 'workforce',
+          label: 'Workforce Data',
+          sublabel: 'US / UK / CA',
+          detail: 'Employee data across 50 markets in three countries.',
+          x: 89,
+          y: 50,
+          type: 'data',
+        },
+      ],
+      edges: [
+        { from: 'mobile', to: 'apollo' },
+        { from: 'apollo', to: 'scheduling' },
+        { from: 'apollo', to: 'rewards' },
+        { from: 'scheduling', to: 'workforce' },
+        { from: 'rewards', to: 'workforce' },
+      ],
+    },
+  },
+  {
+    id: 'theory',
+    name: 'Theory Ventures',
+    description:
+      'Theory Ventures is an emerging Venture Capitalist firm that focuses on early stage software companies that leverage technology discontinuities into go-to-market advantages. Portfolio site developed with speed and SEO in mind.',
+    stack: ['Gatsby', 'Sass', 'React', 'SEO', 'Open Graph Tags'],
+    url: 'https://theory.ventures/',
+    image: venture1,
+    metric: 'speed & SEO first',
+    architecture: {
+      nodes: [
+        {
+          id: 'gatsby',
+          label: 'Gatsby Site',
+          sublabel: 'static',
+          detail: 'Statically generated portfolio site optimized for speed.',
+          x: 18,
+          y: 30,
+          type: 'ui',
+        },
+        {
+          id: 'seo',
+          label: 'SEO Pipeline',
+          sublabel: 'OG tags',
+          detail: 'Open Graph tags, metadata, and sitemap generation.',
+          x: 18,
+          y: 72,
+          type: 'service',
+        },
+        {
+          id: 'content',
+          label: 'Portfolio Content',
+          detail: 'Fund and portfolio company content.',
+          x: 55,
+          y: 50,
+          type: 'data',
+        },
+        {
+          id: 'cdn',
+          label: 'CDN Deploy',
+          detail: 'Edge-deployed static assets for instant loads.',
+          x: 86,
+          y: 50,
+          type: 'external',
+        },
+      ],
+      edges: [
+        { from: 'gatsby', to: 'content', label: 'build' },
+        { from: 'seo', to: 'content' },
+        { from: 'content', to: 'cdn', label: 'deploy' },
+      ],
+    },
+  },
+  {
+    id: 'rye',
+    name: 'Rye',
+    description:
+      'Rye builds developer tools and APIs to build the next generation of eCommerce experiences. I created their Demo and Walkthrough experience and the checkout & cart views.',
+    stack: ['Remix', 'Tailwind'],
+    url: 'https://rye.com/#demo',
+    image: rye1,
+    metric: 'eCommerce developer APIs',
+    architecture: {
+      nodes: [
+        {
+          id: 'demo',
+          label: 'Demo Walkthrough',
+          detail: 'Interactive demo experience for the Rye API.',
+          x: 15,
+          y: 28,
+          type: 'ui',
+        },
+        {
+          id: 'checkout',
+          label: 'Cart & Checkout',
+          detail: 'Checkout experience and cart views.',
+          x: 15,
+          y: 72,
+          type: 'ui',
+        },
+        {
+          id: 'remix',
+          label: 'Remix Server',
+          detail: 'Server-rendered app powering the demo flows.',
+          x: 50,
+          y: 50,
+          type: 'service',
+        },
+        {
+          id: 'ryeapi',
+          label: 'Rye API',
+          detail: 'eCommerce APIs for product, cart, and order management.',
+          x: 84,
+          y: 50,
+          type: 'external',
+        },
+      ],
+      edges: [
+        { from: 'demo', to: 'remix' },
+        { from: 'checkout', to: 'remix' },
+        { from: 'remix', to: 'ryeapi', label: 'orders' },
+      ],
+    },
+  },
+  {
+    id: 'irrelevants',
+    name: 'Artificial Irrelevants',
+    description:
+      'A.I. is an ever-expanding NFT ecosystem featuring a primary collection of 4848 robots. I developed the UI to connect user wallets to mint NFTs and created the Rarity Tool.',
+    stack: ['React', 'Bulma', 'Node'],
+    url: 'https://irrelevants.com/',
+    image: ai2,
+    metric: '$750k+ raised in 1 month',
+    architecture: {
+      nodes: [
+        {
+          id: 'mint',
+          label: 'Mint UI',
+          detail: 'Client interface scaling to 3k concurrent international users.',
+          x: 13,
+          y: 50,
+          type: 'ui',
+        },
+        {
+          id: 'wallet',
+          label: 'Wallet Connect',
+          detail: 'User wallet connection for mint and purchase.',
+          x: 40,
+          y: 25,
+          type: 'service',
+        },
+        {
+          id: 'rarity',
+          label: 'Rarity Tool',
+          detail: 'Statistical rarity calculation and product rankings.',
+          x: 40,
+          y: 75,
+          type: 'service',
+        },
+        {
+          id: 'chain',
+          label: 'Solana',
+          sublabel: 'smart contracts',
+          detail: 'On-chain mint via Web3 smart contracts.',
+          x: 66,
+          y: 50,
+          type: 'external',
+        },
+        {
+          id: 'nfts',
+          label: '4848 NFTs',
+          detail: 'The primary robot collection.',
+          x: 89,
+          y: 50,
+          type: 'data',
+        },
+      ],
+      edges: [
+        { from: 'mint', to: 'wallet' },
+        { from: 'mint', to: 'rarity' },
+        { from: 'wallet', to: 'chain', label: 'mint' },
+        { from: 'chain', to: 'nfts' },
+        { from: 'rarity', to: 'nfts', label: 'rank' },
+      ],
+    },
+  },
+  {
+    id: 'mango',
+    name: 'Mango Mart',
+    description: 'E-commerce platform for selling mechanical keyboards.',
+    stack: ['React', 'Node', 'Bulma', 'Sass'],
+    image: mango1,
+    metric: 'mechanical keyboard storefront',
+    architecture: {
+      nodes: [
+        {
+          id: 'storefront',
+          label: 'React Storefront',
+          detail: 'Product browsing and purchase flows.',
+          x: 18,
+          y: 50,
+          type: 'ui',
+        },
+        {
+          id: 'node',
+          label: 'Node API',
+          detail: 'Orders, inventory, and checkout services.',
+          x: 50,
+          y: 50,
+          type: 'service',
+        },
+        {
+          id: 'catalog',
+          label: 'Product Catalog',
+          detail: 'Mechanical keyboard product data.',
+          x: 82,
+          y: 50,
+          type: 'data',
+        },
+      ],
+      edges: [
+        { from: 'storefront', to: 'node' },
+        { from: 'node', to: 'catalog' },
+      ],
+    },
+  },
+];

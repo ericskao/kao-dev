@@ -1,11 +1,19 @@
 import { HeadFC } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
+
 import FadeInSection from '../components/FadeInSection';
 import PageLayout from '../components/PageLayout';
+import ScrambleText from '../components/ScrambleText';
+import { CONTACT_OPEN_EVENT } from '../utils/contactEvents';
 
 import './about.scss';
 
 const About = () => {
+  const openContact = () => {
+    window.dispatchEvent(new CustomEvent(CONTACT_OPEN_EVENT));
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  };
+
   return (
     <PageLayout>
       <main className="about">
@@ -18,7 +26,9 @@ const About = () => {
           />
         </div>
         <div className="about__paragraphs">
-          <div className="about__title">About Me</div>
+          <div className="about__title">
+            <ScrambleText text="whoami" as="span" />
+          </div>
           <FadeInSection>
             <p>
               I am Eric Kao, an agentic AI engineer and full-stack software engineer based in the
@@ -51,7 +61,9 @@ const About = () => {
               approaches to make that happen.
             </p>
             <p className="about__link">
-              <a href="mailto:ericskao@gmail.com">Let&apos;s build something great together.</a>
+              <button type="button" onClick={openContact}>
+                Let&apos;s build something great together →
+              </button>
             </p>
           </FadeInSection>
         </div>

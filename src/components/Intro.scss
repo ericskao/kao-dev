@@ -1,15 +1,85 @@
 @use '../styles/abstracts/colors';
 @use '../styles/abstracts/sizes';
+@use '../styles/abstracts/effects';
 
 .intro {
+  position: relative;
+
+  &__streams {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &__stream {
+    position: absolute;
+    top: 0;
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.6;
+    color: colors.$neon-green;
+    opacity: 0;
+    animation: streamDown linear infinite;
+    text-shadow: 0 0 8px colors.$glow-green;
+    filter: opacity(0.22);
+  }
+
+  &__grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 60px;
+    align-items: center;
+    min-height: 60vh;
+
+    @media (max-width: sizes.$layout-breakpoint-large) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  &__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: colors.$neon-green;
+    border: 1px solid rgba(0, 255, 156, 0.25);
+    border-radius: 3px;
+    padding: 6px 12px;
+    margin-bottom: 24px;
+  }
+
+  &__status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: colors.$neon-green;
+    box-shadow: 0 0 8px colors.$neon-green;
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  &__accent {
+    @include effects.neon-text(colors.$secondary);
+    animation: blink 1.1s step-end infinite;
+  }
+
   h1 {
     margin-top: 12px;
-    font-size: clamp(40px, 8vw, 80px);
+    font-size: clamp(40px, 7vw, 72px);
+    letter-spacing: -0.02em;
   }
 
   h2 {
-    font-size: clamp(30px, 6vw, 64px);
-    color: colors.$secondary;
+    margin-top: 8px;
+    font-size: clamp(22px, 4vw, 40px);
+    font-weight: sizes.$font-medium;
+    min-height: 1.4em;
+    @include effects.neon-text(colors.$secondary);
 
     @media (max-width: sizes.$layout-breakpoint-small) {
       min-height: 80px;
@@ -17,11 +87,107 @@
   }
 
   p {
-    width: 600px;
-    font-size: sizes.$size-medium;
+    max-width: 560px;
+    margin-top: 24px;
+    font-size: sizes.$size-smaller;
+    line-height: 1.8;
+    color: colors.$muted;
+  }
 
-    @media (max-width: sizes.$layout-breakpoint-small) {
-      width: auto;
+  &--matrix {
+    .intro__stream {
+      filter: opacity(0.55);
+      animation-duration: 6s !important;
     }
+  }
+}
+
+.terminal {
+  @include effects.panel;
+  @include effects.panel-glow(colors.$neon-green);
+  overflow: hidden;
+  font-size: 13px;
+
+  &__chrome {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid colors.$border;
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+
+    &--red {
+      background: #ff5f57;
+    }
+    &--yellow {
+      background: #febc2e;
+    }
+    &--green {
+      background: #28c840;
+    }
+  }
+
+  &__title {
+    margin-left: 10px;
+    font-size: 11px;
+    color: colors.$faint;
+    letter-spacing: 0.05em;
+  }
+
+  &__body {
+    height: 300px;
+    overflow-y: hidden;
+    padding: 16px;
+    line-height: 1.9;
+  }
+
+  &__line {
+    color: colors.$muted;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &--cmd {
+      color: colors.$primary;
+    }
+    &--agent .terminal__prefix {
+      color: colors.$secondary;
+    }
+    &--tool .terminal__prefix {
+      color: #c792ea;
+    }
+    &--obs .terminal__prefix {
+      color: colors.$faint;
+    }
+    &--ok {
+      color: colors.$neon-green;
+      .terminal__prefix {
+        color: colors.$neon-green;
+      }
+    }
+  }
+
+  &__prompt {
+    color: colors.$neon-green;
+  }
+
+  &__prefix {
+    font-weight: sizes.$font-heavy;
+  }
+
+  &__cursor {
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    background: colors.$neon-green;
+    box-shadow: 0 0 8px colors.$neon-green-dim;
+    vertical-align: text-bottom;
+    animation: blink 1.1s step-end infinite;
   }
 }

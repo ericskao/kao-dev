@@ -1,137 +1,168 @@
 import { HeadFC } from 'gatsby';
-import FadeInSection from '../components/FadeInSection';
-import PageLayout from '../components/PageLayout';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
-// assets
-import ai2 from '../images/portfolio/ai2.gif';
-import enjoy1 from '../images/portfolio/enjoy1.gif';
-import mango1 from '../images/portfolio/mango1.png';
-import notion from '../images/portfolio/notion.png';
-import proxy1 from '../images/portfolio/proxy1.png';
-import rye1 from '../images/portfolio/rye1.gif';
-import venture1 from '../images/portfolio/ventures1.png';
-import magiceden1 from '../images/portfolio/magiceden1.png';
-import homelight1 from '../images/portfolio/homelight.png';
+import ArchDiagram from '../components/ArchDiagram';
+import PageLayout from '../components/PageLayout';
+import ScrambleText from '../components/ScrambleText';
+import { ProjectInterface, projects } from '../data/projects';
 
 import './work.scss';
 
-interface WorkInterface {
-  name: string;
-  description: string;
-  stack: string[];
-  url?: string;
-  images?: string[];
-}
+const ProjectCard = ({
+  project,
+  index,
+  onSelect,
+}: {
+  project: ProjectInterface;
+  index: number;
+  onSelect: () => void;
+}) => {
+  return (
+    <motion.li
+      layoutId={`card-${project.id}`}
+      className="work__card"
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.06, duration: 0.4 }}
+      onClick={onSelect}
+      whileHover={{ y: -4 }}
+    >
+      <div className="work__card-header">
+        <span className="work__card-id">MOD-{String(index + 1).padStart(2, '0')}</span>
+        <motion.h3 layoutId={`title-${project.id}`} className="work__card-name">
+          {project.name}
+        </motion.h3>
+        <span className="work__card-signal" />
+      </div>
 
-const workData: WorkInterface[] = [
-  {
-    name: 'HomeLight',
-    description:
-      'HomeLight is a real estate technology platform. I build agentic AI workflows and full-stack systems that automate complex transaction processes across closings, mortgages, and consumer experiences.',
-    stack: ['LangChain', 'Python', 'Ruby on Rails', 'React', 'v0'],
-    url: 'https://www.homelight.com/',
-    images: [homelight1],
-  },
-  {
-    name: 'MagicEden',
-    description:
-      'MagicEden is the premier NFT marketplace and self-custody crypto wallet for users to discover, trade, and create NFTs across multiple blockchains. I worked on the UI Infrastructure team to maintain, develop, and deprecate components in the UI Library.',
-    stack: ['NextJS', 'Zustand', 'Tailwind', 'React', 'TypeScript'],
-    url: 'https://www.magiceden.us/',
-    images: [magiceden1],
-  },
-  {
-    name: 'Notion',
-    description:
-      'Notion is a note-taking and collaboration application for tasks, wikis, and databases. I worked on the Marketing Engineering team to set up A/B tests and experiments for the highest trafficked pages including Notion.so and Notion AI.',
-    stack: ['NextJS'],
-    url: 'https://www.notion.so/',
-    images: [notion],
-  },
-  {
-    name: 'Proxychat',
-    description:
-      'Proxy allows your community to discuss ideas and proposals on the same platform. Decentralize your decision making. I was in charge of architecting the client side and developing core UI features.',
-    stack: ['NextJS', 'Go', 'Redux', 'Tailwind', 'Emotion', 'Firebase'],
-    url: 'https://proxychat.xyz/',
-    images: [proxy1],
-  },
-  {
-    name: 'Enjoy',
-    description:
-      'Some applications I created at Enjoy included: Shift Bidding for Employees, Employee Performance and Rewards, and Goal Setting Gamification. Used across US, UK, Canada across over 75 inventory locations.',
-    stack: ['React', 'Gatsby', 'Tailwind', 'GraphQL', 'Bulma'],
-    images: [enjoy1],
-    url: 'https://www.linkedin.com/company/enjoy-inc-/',
-  },
-  {
-    name: 'Theory Ventures',
-    description:
-      'Theory Ventures is an emerging Venture Capitalist firm that focuses on early stage software companies that leverage technology discontinuities into go-to-market advantages. Portfolio site developed with speed and SEO in mind',
-    stack: ['Gatsby', 'Sass', 'React', 'SEO', 'Open Graph Tags'],
-    url: 'https://theory.ventures/',
-    images: [venture1],
-  },
-  {
-    name: 'Rye',
-    description:
-      'Rye builds developer tools and APIs to build the next generation of eCommerce experiences. I created their Demo and Walkthrough experience and the checkout & cart views.',
-    stack: ['Remix', 'Tailwind'],
-    images: [rye1],
-    url: 'https://rye.com/#demo',
-  },
-  {
-    name: 'Artificial Irrelevants',
-    description:
-      'A.I. is an ever-expanding NFT ecosystem featuring a primary collection of 4848 robots. I developed the UI to connect user wallets to mint NFTs and created the Rarity Tool.',
-    stack: ['React', 'Bulma', 'Node'],
-    url: 'https://irrelevants.com/',
-    images: [ai2],
-  },
-  {
-    name: 'Mango Mart',
-    description: 'E-commerce platform for selling mechanical keyboards',
-    stack: ['React', 'Node', 'Bulma', 'Sass'],
-    images: [mango1],
-  },
-];
+      {project.image && (
+        <div className="work__card-thumb">
+          <img src={project.image} alt={project.name} loading="lazy" />
+        </div>
+      )}
+
+      {project.metric && <div className="work__card-metric">▸ {project.metric}</div>}
+
+      <ul className="work__card-stack">
+        {project.stack.map((tech) => (
+          <li key={tech}>{tech}</li>
+        ))}
+      </ul>
+
+      {/* hover-triggered expansion panel */}
+      <div className="work__card-expand">
+        <p>{project.description}</p>
+        <span className="work__card-cta">[ click to inspect architecture ]</span>
+      </div>
+    </motion.li>
+  );
+};
+
+const ProjectDetail = ({
+  project,
+  onClose,
+}: {
+  project: ProjectInterface;
+  onClose: () => void;
+}) => {
+  return (
+    <motion.div
+      className="work__overlay"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+    >
+      <motion.div
+        layoutId={`card-${project.id}`}
+        className="work__detail"
+        onClick={(e: React.MouseEvent) => e.stopPropagation()}
+      >
+        <div className="work__detail-header">
+          <motion.h3 layoutId={`title-${project.id}`} className="work__detail-name">
+            {project.name}
+          </motion.h3>
+          <span className="work__detail-path">~/architecture/{project.id}.sys</span>
+          <button className="work__detail-close" onClick={onClose} aria-label="Close">
+            ✕
+          </button>
+        </div>
+
+        <motion.div
+          className="work__detail-body"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          <p className="work__detail-description">{project.description}</p>
+
+          <div className="work__detail-diagram">
+            <div className="work__detail-diagram-label">// SYSTEM ARCHITECTURE</div>
+            <ArchDiagram architecture={project.architecture} />
+          </div>
+
+          <div className="work__detail-footer">
+            <ul className="work__card-stack">
+              {project.stack.map((tech) => (
+                <li key={tech}>{tech}</li>
+              ))}
+            </ul>
+            {project.url && (
+              <a className="work__detail-link" href={project.url} target="_blank" rel="noreferrer">
+                open_project ↗
+              </a>
+            )}
+          </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  );
+};
 
 const Work = () => {
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const selectedProject = projects.find((project) => project.id === selectedId);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    const projectId = params.get('project');
+    if (projectId && projects.some((p) => p.id === projectId)) {
+      setSelectedId(projectId);
+    }
+  }, []);
+
   return (
     <PageLayout>
-      <FadeInSection>
-        <main className="work">
-          <div className="work__title">My Work</div>
-          <ul className="work__list">
-            {workData.map((work, index) => (
-              <li key={index}>
-                <FadeInSection className="work__item">
-                  {work.images && work.images.length > 0 && (
-                    <a href={work.url} target="_blank">
-                      <img className="work__picture" src={work.images[0]} />
-                    </a>
-                  )}
-                  <div className="work__info">
-                    <a href={work.url || '#'} target="_blank">
-                      {work.name}
-                    </a>
-                    <div className="work__description">{work.description}</div>
-                    <ul className="work__tech-stack">
-                      {work.stack.map((tech) => (
-                        <li key={tech}>{tech}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </FadeInSection>
-              </li>
-            ))}
-          </ul>
-        </main>
-      </FadeInSection>
+      <main className="work">
+        <div className="work__title">
+          <span className="work__title-prompt">➜</span>{' '}
+          <ScrambleText text="ls ~/projects" as="span" />
+          <span className="work__title-count"> · {projects.length} modules loaded</span>
+        </div>
+
+        <ul className="work__grid">
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={index}
+              onSelect={() => setSelectedId(project.id)}
+            />
+          ))}
+        </ul>
+
+        <AnimatePresence>
+          {selectedProject && (
+            <ProjectDetail project={selectedProject} onClose={() => setSelectedId(null)} />
+          )}
+        </AnimatePresence>
+      </main>
     </PageLayout>
   );
 };
 
 export default Work;
 
-export const Head: HeadFC = () => <title>Eric Kao - Work & Portfolio</title>;
+export const Head: HeadFC = () => <title>Eric Kao — Work & Portfolio</title>;

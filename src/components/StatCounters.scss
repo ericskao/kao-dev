@@ -1,0 +1,35 @@
+@use '../styles/abstracts/colors';
+@use '../styles/abstracts/effects';
+
+.stat-counters {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+
+  &__item {
+    @include effects.panel;
+    padding: 16px 20px;
+    text-align: center;
+  }
+
+  &__value {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    @include effects.neon-text(colors.$secondary);
+  }
+
+  &__label {
+    display: block;
+    margin-top: 6px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: colors.$faint;
+  }
+}

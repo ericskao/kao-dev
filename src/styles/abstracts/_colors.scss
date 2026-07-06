@@ -1,7 +1,21 @@
-$primary: #ffff;
-$white-secondary: #edeff0;
+// AI Command Dashboard — hyper-minimal dark monochrome + cyber neon
+$bg-color: #0a0e13;
+$panel: #0d1218;
+$panel-raised: #111823;
+$border: #1c2531;
+$border-bright: #2a3646;
 
-$bg-color: #bcc9da;
+$primary: #e6edf3;
+$muted: #7d8896;
+$faint: #4a5563;
 
-$secondary: rgb(34, 34, 136);
-$secondary-light: rgb(34, 34, 136, 30%);
+// runtime-swappable accents via CSS variables
+$secondary: var(--accent, #00e5ff);
+$secondary-light: var(--accent-light, rgba(0, 229, 255, 0.35));
+$neon-green: #00ff9c;
+$neon-green-dim: rgba(0, 255, 156, 0.35);
+
+$glow-cyan: var(--accent-glow, rgba(0, 229, 255, 0.12));
+$glow-green: rgba(0, 255, 156, 0.1);
+
+$white-secondary: #1c2531;

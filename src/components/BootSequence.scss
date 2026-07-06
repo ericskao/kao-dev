@@ -1,0 +1,42 @@
+@use '../styles/abstracts/colors';
+@use '../styles/abstracts/effects';
+
+.boot {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: colors.$bg-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &__terminal {
+    font-size: 14px;
+    line-height: 2;
+    min-width: 360px;
+  }
+
+  &__line {
+    color: colors.$muted;
+
+    &--header {
+      color: colors.$secondary;
+      margin-bottom: 12px;
+      letter-spacing: 0.1em;
+    }
+  }
+
+  &__prompt {
+    color: colors.$neon-green;
+    margin-right: 8px;
+  }
+
+  &__skip {
+    margin-top: 24px;
+    font-size: 11px;
+    color: colors.$faint;
+    letter-spacing: 0.1em;
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+}

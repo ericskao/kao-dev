@@ -1,79 +1,269 @@
 @use '../styles/abstracts/sizes';
 @use '../styles/abstracts/colors';
+@use '../styles/abstracts/effects';
 
 .work {
   &__title {
-    font-weight: sizes.$font-heavy;
-    font-size: sizes.$size-xlarge;
-    color: colors.$secondary;
-    margin-bottom: 36px;
+    font-size: sizes.$size-small;
+    margin-bottom: 40px;
+    color: colors.$primary;
+
+    &-prompt {
+      color: colors.$neon-green;
+      margin-right: 8px;
+    }
+
+    &-count {
+      color: colors.$faint;
+      font-size: 14px;
+    }
   }
 
-  &__list {
-    padding: 0 10%;
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+  }
 
-    li:nth-child(odd) {
-      .fade-in-section {
-        flex-direction: row-reverse;
+  // ── dashboard module card ──────────────────────────────
+  &__card {
+    @include effects.panel;
+    position: relative;
+    padding: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color 250ms, box-shadow 250ms;
+
+    &:hover {
+      @include effects.panel-glow(colors.$secondary);
+
+      .work__card-expand {
+        max-height: 260px;
+        opacity: 1;
+        margin-top: 16px;
+      }
+
+      .work__card-signal {
+        background: colors.$neon-green;
+        box-shadow: 0 0 8px colors.$neon-green;
       }
     }
   }
 
-  &__item {
-    margin: 75px 0;
+  &__card-header {
     display: flex;
-    gap: 50px;
-    justify-content: center;
-    position: relative;
-
-    @media (max-width: sizes.$layout-breakpoint-small) {
-      display: block;
-    }
-  }
-
-  &__info {
-    padding: 36px;
-    border-radius: 8px;
-    max-width: 500px;
-    align-self: center;
-
-    @media (max-width: sizes.$layout-breakpoint-small) {
-      padding: 12px 0 0 0;
-    }
-
-    a {
-      color: colors.$secondary;
-      font-weight: sizes.$font-heavy;
-      font-size: sizes.$size-medium;
-    }
-  }
-
-  &__picture {
-    max-width: 100%;
-    max-height: 500px;
-    width: auto;
-    height: auto;
-    border-radius: 10px;
-    object-fit: contain;
-  }
-
-  &__description {
-    margin-top: 12px;
-    font-size: sizes.$size-small;
-  }
-
-  &__tech-stack {
+    align-items: center;
     gap: 12px;
-    display: flex;
-    margin-top: 24px;
+  }
 
-    li::before {
-      content: '▹';
-      margin-right: 10px;
+  &__card-id {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: colors.$faint;
+    border: 1px solid colors.$border;
+    border-radius: 3px;
+    padding: 3px 6px;
+  }
+
+  &__card-name {
+    font-size: sizes.$size-smaller;
+    font-weight: sizes.$font-heavy;
+    color: colors.$primary;
+  }
+
+  &__card-signal {
+    margin-left: auto;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: colors.$faint;
+    transition: background 250ms, box-shadow 250ms;
+  }
+
+  &__card-thumb {
+    margin-top: 16px;
+    border: 1px solid colors.$border;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 160px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      filter: saturate(0.7) brightness(0.85);
+      transition: filter 300ms, transform 300ms;
     }
+  }
+
+  &__card:hover &__card-thumb img {
+    filter: saturate(1) brightness(1);
+    transform: scale(1.03);
+  }
+
+  &__card-metric {
+    margin-top: 14px;
+    font-size: 12px;
+    color: colors.$secondary;
+    letter-spacing: 0.04em;
+  }
+
+  &__card-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+
+    li {
+      font-size: 11px;
+      color: colors.$muted;
+      border: 1px solid colors.$border;
+      border-radius: 3px;
+      padding: 3px 8px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+  }
+
+  // hover-triggered expansion panel
+  &__card-expand {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    overflow: hidden;
+    transition: max-height 350ms ease, opacity 300ms ease, margin-top 350ms ease;
+    border-top: 1px dashed colors.$border-bright;
+
+    p {
+      margin: 14px 0 10px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: colors.$muted;
+    }
+  }
+
+  &__card-cta {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: colors.$neon-green;
+  }
+
+  // ── deep-dive overlay ──────────────────────────────────
+  &__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    background: rgba(6, 9, 13, 0.85);
+    backdrop-filter: blur(6px);
 
     @media (max-width: sizes.$layout-breakpoint-small) {
-      display: block;
+      padding: 12px;
+    }
+  }
+
+  &__detail {
+    @include effects.panel;
+    @include effects.panel-glow(colors.$secondary);
+    width: min(960px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  &__detail-header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: colors.$panel-raised;
+    border-bottom: 1px solid colors.$border;
+  }
+
+  &__detail-name {
+    font-size: sizes.$size-small;
+    font-weight: sizes.$font-heavy;
+    @include effects.neon-text(colors.$secondary);
+  }
+
+  &__detail-path {
+    font-size: 11px;
+    color: colors.$faint;
+    letter-spacing: 0.05em;
+
+    @media (max-width: sizes.$layout-breakpoint-small) {
+      display: none;
+    }
+  }
+
+  &__detail-close {
+    margin-left: auto;
+    background: transparent;
+    border: 1px solid colors.$border-bright;
+    border-radius: 4px;
+    color: colors.$muted;
+    font-size: 13px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: color 200ms, border-color 200ms;
+
+    &:hover {
+      color: colors.$secondary;
+      border-color: colors.$secondary;
+    }
+  }
+
+  &__detail-body {
+    padding: 20px;
+  }
+
+  &__detail-description {
+    margin: 0 0 20px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: colors.$muted;
+  }
+
+  &__detail-diagram {
+    border: 1px solid colors.$border;
+    border-radius: 6px;
+    background: colors.$bg-color;
+    padding: 16px;
+
+    &-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: colors.$faint;
+      margin-bottom: 12px;
+    }
+  }
+
+  &__detail-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  &__detail-link {
+    font-size: 13px;
+    color: colors.$neon-green;
+    border: 1px solid rgba(0, 255, 156, 0.3);
+    border-radius: 4px;
+    padding: 8px 16px;
+    transition: box-shadow 200ms, border-color 200ms;
+
+    &:hover {
+      border-color: colors.$neon-green;
+      box-shadow: 0 0 16px colors.$glow-green;
     }
   }
 }

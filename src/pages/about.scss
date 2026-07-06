@@ -1,5 +1,6 @@
 @use '../styles/abstracts/sizes';
 @use '../styles/abstracts/colors';
+@use '../styles/abstracts/effects';
 
 .about {
   display: flex;
@@ -16,13 +17,16 @@
   }
 
   &__title {
-    font-weight: sizes.$font-heavy;
-    font-size: sizes.$size-xlarge;
-    color: colors.$secondary;
+    font-size: sizes.$size-small;
+    color: colors.$primary;
+
+    &::before {
+      content: '➜ ';
+      color: colors.$neon-green;
+    }
 
     @media (max-width: sizes.$layout-breakpoint-small) {
       text-align: center;
-      font-size: sizes.$size-medium;
     }
   }
 
@@ -30,7 +34,8 @@
     width: 160px;
     height: 160px;
     border-radius: 99px;
-    border: 4px solid white;
+    border: 2px solid colors.$secondary;
+    box-shadow: 0 0 24px colors.$glow-cyan;
   }
 
   &__profile-pic-container {
@@ -43,24 +48,34 @@
     padding: 10px 20px;
 
     p {
-      line-height: sizes.$line-height-small;
-      font-size: sizes.$size-small;
-      max-width: 900px;
-      margin: 36px 0;
+      line-height: 1.9;
+      font-size: 15px;
+      color: colors.$muted;
+      max-width: 800px;
+      margin: 32px 0;
     }
 
     a {
-      color: colors.$secondary-light;
+      color: colors.$secondary;
 
       &:hover {
-        font-weight: sizes.$font-heavy;
+        text-shadow: 0 0 12px colors.$secondary-light;
       }
     }
   }
 
   &__link {
-    a {
-      color: colors.$secondary;
+    button {
+      background: none;
+      border: none;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
+      @include effects.neon-text(colors.$neon-green);
+
+      &:hover {
+        text-shadow: 0 0 16px colors.$neon-green-dim;
+      }
     }
 
     @media (max-width: sizes.$layout-breakpoint-small) {

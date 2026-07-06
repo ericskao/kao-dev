@@ -1,3 +1,5 @@
+@use './colors';
+
 @mixin fadeIn($length) {
   animation: fadeInAnimation ($length);
 }
@@ -8,11 +10,93 @@
   text-decoration: underline rgba(0, 0, 0, 0);
 }
 
+// dashboard module panel
+@mixin panel {
+  background: linear-gradient(180deg, colors.$panel-raised 0%, colors.$panel 100%);
+  border: 1px solid colors.$border;
+  border-radius: 6px;
+}
+
+@mixin panel-glow($color: colors.$secondary) {
+  border-color: rgba($color, 0.45);
+  box-shadow:
+    0 0 0 1px rgba($color, 0.15),
+    0 0 24px rgba($color, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+@mixin neon-text($color: colors.$secondary) {
+  color: $color;
+  text-shadow: 0 0 12px rgba($color, 0.5);
+}
+
+// terminal window chrome dots
+@mixin terminal-dots {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
 @keyframes fadeInAnimation {
   0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes streamDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes dashFlow {
+  to {
+    stroke-dashoffset: -20;
   }
 }

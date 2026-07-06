@@ -1,0 +1,130 @@
+@use '../styles/abstracts/colors';
+@use '../styles/abstracts/sizes';
+@use '../styles/abstracts/effects';
+
+.arch {
+  &__svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &__edge {
+    &-line {
+      fill: none;
+      stroke: colors.$border-bright;
+      stroke-width: 1.5;
+      stroke-dasharray: 6 4;
+      transition:
+        stroke 200ms,
+        opacity 200ms;
+      animation: dashFlow 1.2s linear infinite;
+    }
+
+    &-label {
+      fill: colors.$faint;
+      font-size: 10px;
+      text-anchor: middle;
+      letter-spacing: 0.08em;
+      transition: fill 200ms;
+    }
+
+    &--active {
+      .arch__edge-line {
+        stroke: colors.$secondary;
+        filter: drop-shadow(0 0 4px colors.$secondary-light);
+      }
+      .arch__edge-label {
+        fill: colors.$secondary;
+      }
+    }
+  }
+
+  &__node {
+    cursor: pointer;
+
+    &-box {
+      fill: colors.$panel-raised;
+      stroke: colors.$border-bright;
+      stroke-width: 1;
+      transition:
+        stroke 200ms,
+        filter 200ms;
+    }
+
+    &-light {
+      fill: colors.$faint;
+      transition: fill 200ms;
+    }
+
+    &-label {
+      fill: colors.$primary;
+      font-size: 13px;
+      font-weight: sizes.$font-medium;
+      pointer-events: none;
+    }
+
+    &-sublabel {
+      fill: colors.$muted;
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      pointer-events: none;
+    }
+
+    // node type accent lights
+    &--agent .arch__node-light {
+      fill: colors.$secondary;
+    }
+    &--service .arch__node-light {
+      fill: colors.$neon-green;
+    }
+    &--data .arch__node-light {
+      fill: #febc2e;
+    }
+    &--external .arch__node-light {
+      fill: #c792ea;
+    }
+    &--ui .arch__node-light {
+      fill: #ff5f57;
+    }
+
+    &--active,
+    &--selected {
+      .arch__node-box {
+        stroke: colors.$secondary;
+        filter: drop-shadow(0 0 8px colors.$secondary-light);
+      }
+      .arch__node-light {
+        animation: pulseGlow 1.2s ease-in-out infinite;
+      }
+    }
+  }
+
+  &__inspector {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 8px;
+    padding: 12px 16px;
+    border-top: 1px solid colors.$border;
+    font-size: 12px;
+    min-height: 48px;
+
+    &-id {
+      color: colors.$secondary;
+      font-weight: sizes.$font-heavy;
+      letter-spacing: 0.06em;
+    }
+
+    &-detail {
+      color: colors.$muted;
+      line-height: 1.6;
+    }
+
+    &-hint {
+      color: colors.$faint;
+      align-self: center;
+      margin: auto 0;
+    }
+  }
+}
